@@ -47,6 +47,16 @@ section a {
   display: contents;
 }
 
+section a:active {
+  color: black;
+}
+
+
+section a:visited {
+  color: black;
+}
+
+
 section h2 {
   font-weight: normal;
   font-size: 1.5rem;
