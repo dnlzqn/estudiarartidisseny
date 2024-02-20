@@ -42,10 +42,13 @@ section p {
   text-align: center;
 }
 
-section a {
+.menu a {
   color: black;
   display: contents;
-  text-decoration: none; 
+}
+
+section a {
+  color: black;
 }
 
 section a:active {
@@ -145,6 +148,7 @@ button {
   padding: .5rem;
   font-size: .8rem;
   cursor: pointer;
+  color: black;
 }
 
 button.default {
