@@ -47,13 +47,9 @@ section a {
   display: contents;
 }
 
-section a:active {
-  color: black;
-}
-
-
-section a:visited {
-  color: black;
+a, a:visited, a:hover, a:focus, a:active {
+    color: black;
+    text-decoration: none;
 }
 
 
