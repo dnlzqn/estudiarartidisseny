@@ -45,11 +45,16 @@ section p {
 section a {
   color: black;
   display: contents;
+  text-decoration: none; 
 }
 
-a, a:visited, a:hover, a:focus, a:active {
-    color: black;
-    text-decoration: none;
+section a:active {
+  color: black;
+}
+
+
+section a:visited {
+  color: black;
 }
 
 
