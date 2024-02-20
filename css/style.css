@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  --caracters-per-linia: 55;
+  --mida-font-min: 20px;
+  --mida-font-max: 40px;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  font-size: clamp(
+    var(--mida-font-min),
+    4vw,
+    var(--mida-font-max)
+  );
+  line-height: 1.6;
+  color: "black";
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 5rem auto 0 auto;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.3;
+  justify-content: center;
+}
+
+section p {
+  text-align: center;
+}
+
+section h2 {
+  font-weight: normal;
+  font-size: 1.5rem;
+  width: 90%;
+}
+.portada {
+    padding: 20px;
+}
+
+.portada svg {
+  width: 100%;
+  height: auto;
+}
+
+.portada p {
+  margin: 2rem 0;
+  font-size: 1.2rem
+}
+
+#dipu_logo {
+  width: 60%;
+  margin: 1rem;
+}
+
+.imatge-sec svg {
+  width: 60%;
+  margin: 1rem;
+}
+
+.imatge-sec {
+    background: #FFED00;
+    min-height: 75vh;
+}
+
+.imatge-sec h2 {
+  width: 90%;
+}
+
+.imatge-sec img {
+  width: 65%;
+  margin: 3rem 0;
+}
+
+.imatge-sec div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 2rem 0;
+}
+
+.imatge-sec p {
+  margin: .5em 0;
+}
+
+.text-sec{
+  min-height: 50vh;
+}
+
+button {
+  appearance: none;
+  border: 1px solid black;
+  border-top: none;
+  width: 90%;
+  background: white;
+  padding: .5rem;
+  font-size: .8rem;
+  cursor: pointer;
+}
+
+
+
+button.default {
+  background: white;
+  color: black;
+}
+
+button.hover {
+  background: grey;
+  color: black;
+}
+
+button.active {
+  background: black;
+  color: white;
+}
+
+
+.accordion > input[type="checkbox"] {
+  position: absolute;
+  left: -100vw;
+}
+
+.accordion .content {
+  width: 90%;
+  overflow-y: hidden;
+  height: 0;
+  transition: height 0.3s ease;
+}
+
+.accordion .content img {
+  width: 90%;
+}
+
+.accordion .content p {
+  font-size: .7rem;
+}
+
+
+.accordion > input[type="checkbox"]:checked ~ .content {
+  height: auto;
+  overflow: visible;
+}
+
+.accordion label {
+  display: block;
+}
+
+.accordion {
+  margin-bottom: 0;
+}
+
+.accordion > input[type="checkbox"]:checked ~ .content {
+  padding: 15px;
+  background: white;
+  border: 1px solid black;
+  border-top: none;
+}
+
+.accordion .handle {
+  margin: 0;
+  font-size: .8rem;
+  line-height: 1.2em;
+}
+
+.accordion label {
+  color: #333;
+  cursor: pointer;
+  font-weight: normal;
+  padding: 15px;
+  background: white;
+  border: 1px solid black;
+  border-top: none;
+}
+
+.accordion label:hover,
+.accordion label:focus {
+  background: #d8d8d8;
+}
+
+.accordion .botop,
+.botop {
+  border-top: 1px solid black;
+}
+
+@media only screen and (min-width: 768px) {
+  .portada svg {
+    width: 32%;
+  }
+
+  .imatge-sec svg {
+    width: 32%;
+  }
+
+  .portada p {
+    margin: 0.75rem 0;
+    font-size:.75rem;
+  }
+
+  #dipu_logo {
+    width: 20%;
+  }
+
+  .imatge-sec img {
+    max-width: 35%;
+    margin: 2.5rem 0;
+  }
+
+  .text-sec{
+    min-height: 100vh;
+  }
+
+  section h2 {
+    width: 70%;
+  }
+
+  .accordion .content {
+    width: 70%;
+  }
+
+}
