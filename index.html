@@ -46,7 +46,7 @@
         </defs>
       </svg>
     </section>
-    <section class="text-sec">
+    <section class="text-sec menu">
       <h2>Escoles d’Art i Disseny <br> de la Diputació a Reus i a Tarragona </h2>
       <a href="#oferta">
         <button class="botop">Oferta formativa</button>
@@ -74,7 +74,7 @@
       <img src="img/eadreus_dibuix.jpg" alt="Alumnes dibuixant al natural a la ciutat de Reus">
     </section>
     <section class="text-sec">
-      <h2>Els estudis estan estructurats en dos cursos que incorporen en el pla d'estudis la realització de pràctiques en empreses fora de l’horari lectiu.</h2>
+      <h2>Els cicles formatius estan estructurats en dos cursos que incorporen en el pla d'estudis la realització de pràctiques en empreses fora de l’horari lectiu.</h2>
     </section>
     <section class="imatge-sec">
       <img src="img/las-dos-fridas.jpg" alt="Fotografia titulada Las dos Fridas, treball de classe on es reconstrueix fotogràficament una obra de Frida Kahlo">
@@ -351,6 +351,9 @@
         </div>
       </section>
     </section>
+    <section class="imatge-sec">
+      <img src="img/ana-mejias.jpg" alt="Un alumne es posa una mascara feta amb papiroflexia, obra de l'alumna Ana Mejías">
+    </section>
     <section class="text-sec testimonis" id="testimonis">
       <div class='has-slider'>
         <div class='slider' id='slider'>
@@ -447,100 +450,98 @@
         </p>
       </div>
     </section>
-    <section class="imatge-sec">
-      <img src="img/ana-mejias.jpg" alt="Un alumne es posa una mascara feta amb papiroflexia, obra de l'alumna Ana Mejías">
-    </section>
-<script>
-  const buttons = document.querySelectorAll('button');
 
-  buttons.forEach(function(button) {
-    button.addEventListener('mouseover', function() {
-      button.classList.add('hover');
-    });
-    button.addEventListener('mouseout', function() {
-      button.classList.remove('hover');
-    });
-    button.addEventListener('mousedown', function() {
-      button.classList.add('active');
-    });
-    button.addEventListener('mouseup', function() {
-      button.classList.remove('active');
-    });
-  });
+  <script>
+    const buttons = document.querySelectorAll('button');
 
-  window.slider = {};
-  slider.sliderPanelSelector = '.slider-panel';
-  slider.sliderPaginationSelector = '.slider-pagination';
-  slider.sensitivity = 25;
-  slider.activeSlide = 0;
-  slider.slideCount = 0;
-
-  slider.init = function(selector) {
-    slider.sliderEl = document.querySelector(selector);
-    slider.slideCount = slider.sliderEl.querySelectorAll(slider.sliderPanelSelector).length;
-    var n = 0;
-    for (n; n < slider.slideCount; n++) {
-      var activeStatus = n == slider.activeSlide ? ' class="is-active"' : '';
-      slider.sliderEl.parentElement.querySelector(slider.sliderPaginationSelector).innerHTML += '<div' + activeStatus + '></div>';
-    }
-
-    var sliderManager = new Hammer.Manager(slider.sliderEl, {
-      recognizers: [
-        [Hammer.Pan, { direction: Hammer.DIRECTION_HORIZONTAL }]
-      ]
+    buttons.forEach(function(button) {
+      button.addEventListener('mouseover', function() {
+        button.classList.add('hover');
+      });
+      button.addEventListener('mouseout', function() {
+        button.classList.remove('hover');
+      });
+      button.addEventListener('mousedown', function() {
+        button.classList.add('active');
+      });
+      button.addEventListener('mouseup', function() {
+        button.classList.remove('active');
+      });
     });
 
-    sliderManager.on('pan', function(e) {
-      var percentage = 100 / slider.slideCount * e.deltaX / window.innerWidth;
-      var percentageCalculated = percentage - 100 / slider.slideCount * slider.activeSlide;
-      slider.sliderEl.style.transform = 'translateX(' + percentageCalculated + '%)';
+    window.slider = {};
+    slider.sliderPanelSelector = '.slider-panel';
+    slider.sliderPaginationSelector = '.slider-pagination';
+    slider.sensitivity = 25;
+    slider.activeSlide = 0;
+    slider.slideCount = 0;
 
-      if (e.isFinal) {
-        console.log(e.velocityX);
-        if (e.velocityX > 1) {
-          slider.goTo(slider.activeSlide - 1);
-        } else if (e.velocityX < -1) {
-          slider.goTo(slider.activeSlide + 1);
-        } else {
-          if (percentage <= -(slider.sensitivity / slider.slideCount)) {
-            slider.goTo(slider.activeSlide + 1);
-          } else if (percentage >= (slider.sensitivity / slider.slideCount)) {
+    slider.init = function(selector) {
+      slider.sliderEl = document.querySelector(selector);
+      slider.slideCount = slider.sliderEl.querySelectorAll(slider.sliderPanelSelector).length;
+      var n = 0;
+      for (n; n < slider.slideCount; n++) {
+        var activeStatus = n == slider.activeSlide ? ' class="is-active"' : '';
+        slider.sliderEl.parentElement.querySelector(slider.sliderPaginationSelector).innerHTML += '<div' + activeStatus + '></div>';
+      }
+
+      var sliderManager = new Hammer.Manager(slider.sliderEl, {
+        recognizers: [
+          [Hammer.Pan, { direction: Hammer.DIRECTION_HORIZONTAL }]
+        ]
+      });
+
+      sliderManager.on('pan', function(e) {
+        var percentage = 100 / slider.slideCount * e.deltaX / window.innerWidth;
+        var percentageCalculated = percentage - 100 / slider.slideCount * slider.activeSlide;
+        slider.sliderEl.style.transform = 'translateX(' + percentageCalculated + '%)';
+
+        if (e.isFinal) {
+          console.log(e.velocityX);
+          if (e.velocityX > 1) {
             slider.goTo(slider.activeSlide - 1);
+          } else if (e.velocityX < -1) {
+            slider.goTo(slider.activeSlide + 1);
           } else {
-            slider.goTo(slider.activeSlide);
+            if (percentage <= -(slider.sensitivity / slider.slideCount)) {
+              slider.goTo(slider.activeSlide + 1);
+            } else if (percentage >= (slider.sensitivity / slider.slideCount)) {
+              slider.goTo(slider.activeSlide - 1);
+            } else {
+              slider.goTo(slider.activeSlide);
+            }
           }
         }
+      });
+    };
+
+    slider.goTo = function(number) {
+      if (number < 0) {
+        slider.activeSlide = 0;
+      } else if (number > slider.slideCount - 1) {
+        slider.activeSlide = slider.slideCount - 1;
+      } else {
+        slider.activeSlide = number;
       }
-    });
-  };
 
-  slider.goTo = function(number) {
-    if (number < 0) {
-      slider.activeSlide = 0;
-    } else if (number > slider.slideCount - 1) {
-      slider.activeSlide = slider.slideCount - 1;
-    } else {
-      slider.activeSlide = number;
-    }
+      slider.sliderEl.classList.add('is-animating');
+      var percentage = -(100 / slider.slideCount) * slider.activeSlide;
+      slider.sliderEl.style.transform = 'translateX(' + percentage + '%)';
+      clearTimeout(slider.timer);
+      slider.timer = setTimeout(function() {
+        slider.sliderEl.classList.remove('is-animating');
+      }, 400);
 
-    slider.sliderEl.classList.add('is-animating');
-    var percentage = -(100 / slider.slideCount) * slider.activeSlide;
-    slider.sliderEl.style.transform = 'translateX(' + percentage + '%)';
-    clearTimeout(slider.timer);
-    slider.timer = setTimeout(function() {
-      slider.sliderEl.classList.remove('is-animating');
-    }, 400);
+      var pagination = slider.sliderEl.parentElement.querySelectorAll(slider.sliderPaginationSelector + '>*');
+      var n = 0;
+      for (n; n < pagination.length; n++) {
+        var className = n == slider.activeSlide ? 'is-active' : '';
+        pagination[n].className = className;
+      }
+    };
 
-    var pagination = slider.sliderEl.parentElement.querySelectorAll(slider.sliderPaginationSelector + '>*');
-    var n = 0;
-    for (n; n < pagination.length; n++) {
-      var className = n == slider.activeSlide ? 'is-active' : '';
-      pagination[n].className = className;
-    }
-  };
-
-  slider.init('#slider');
-</script>
+    slider.init('#slider');
+  </script>
 
 
   </body>
