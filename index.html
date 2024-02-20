@@ -54,11 +54,11 @@
       <a href="#preinscripcio">
         <button>Preinscripció i matrícula</button>
       </a>
-      <a href="#testimonis">
-        <button>Testimonis</button>
-      </a>
       <a href="#acces">
         <button>Vies d'accés</button>
+      </a>
+      <a href="#testimonis">
+        <button>Testimonis</button>
       </a>
     </section>
     <section class="text-sec">
@@ -450,97 +450,98 @@
     <section class="imatge-sec">
       <img src="img/ana-mejias.jpg" alt="Un alumne es posa una mascara feta amb papiroflexia, obra de l'alumna Ana Mejías">
     </section>
-    <script>
-      const buttons = document.querySelectorAll('button');
+<script>
+  const buttons = document.querySelectorAll('button');
 
-      buttons.forEach(function(button) {
-        button.addEventListener('mouseover', function() {
-          button.classList.add('hover');
-        });
-        button.addEventListener('mouseout', function() {
-          button.classList.remove('hover');
-        });
-        button.addEventListener('mousedown', function() {
-          button.classList.add('active');
-        });
-        button.addEventListener('mouseup', function() {
-          button.classList.remove('active');
-        });
-      });
+  buttons.forEach(function(button) {
+    button.addEventListener('mouseover', function() {
+      button.classList.add('hover');
+    });
+    button.addEventListener('mouseout', function() {
+      button.classList.remove('hover');
+    });
+    button.addEventListener('mousedown', function() {
+      button.classList.add('active');
+    });
+    button.addEventListener('mouseup', function() {
+      button.classList.remove('active');
+    });
+  });
 
-      window.slider = {};
-      slider.sliderPanelSelector = '.slider-panel';
-      slider.sliderPaginationSelector = '.slider-pagination';
-      slider.sensitivity = 25;
-      slider.activeSlide = 0;
-      slider.slideCount = 0;
+  window.slider = {};
+  slider.sliderPanelSelector = '.slider-panel';
+  slider.sliderPaginationSelector = '.slider-pagination';
+  slider.sensitivity = 25;
+  slider.activeSlide = 0;
+  slider.slideCount = 0;
 
-      slider.init = function(selector) {
-        slider.sliderEl = document.querySelector(selector);
-        slider.slideCount = slider.sliderEl.querySelectorAll(slider.sliderPanelSelector).length;
-        var n = 0;
-        for (n; n < slider.slideCount; n++) {
-          var activeStatus = n == slider.activeSlide ? ' class="is-active"' : '';
-          slider.sliderEl.parentElement.querySelector(slider.sliderPaginationSelector).innerHTML += '<div' + activeStatus + '></div>';
-        }
+  slider.init = function(selector) {
+    slider.sliderEl = document.querySelector(selector);
+    slider.slideCount = slider.sliderEl.querySelectorAll(slider.sliderPanelSelector).length;
+    var n = 0;
+    for (n; n < slider.slideCount; n++) {
+      var activeStatus = n == slider.activeSlide ? ' class="is-active"' : '';
+      slider.sliderEl.parentElement.querySelector(slider.sliderPaginationSelector).innerHTML += '<div' + activeStatus + '></div>';
+    }
 
-        var sliderManager = new Hammer.Manager(slider.sliderEl);
-        sliderManager.add(new Hammer.Pan({
-          threshold: 0,
-          pointers: 0
-        }));
+    var sliderManager = new Hammer.Manager(slider.sliderEl, {
+      recognizers: [
+        [Hammer.Pan, { direction: Hammer.DIRECTION_HORIZONTAL }]
+      ]
+    });
 
-        sliderManager.on('pan', function(e) {
-          var percentage = 100 / slider.slideCount * e.deltaX / window.innerWidth;
-          var percentageCalculated = percentage - 100 / slider.slideCount * slider.activeSlide;
-          slider.sliderEl.style.transform = 'translateX(' + percentageCalculated + '%)';
+    sliderManager.on('pan', function(e) {
+      var percentage = 100 / slider.slideCount * e.deltaX / window.innerWidth;
+      var percentageCalculated = percentage - 100 / slider.slideCount * slider.activeSlide;
+      slider.sliderEl.style.transform = 'translateX(' + percentageCalculated + '%)';
 
-          if (e.isFinal) {
-            console.log(e.velocityX);
-            if (e.velocityX > 1) {
-              slider.goTo(slider.activeSlide - 1);
-            } else if (e.velocityX < -1) {
-              slider.goTo(slider.activeSlide + 1);
-            } else {
-              if (percentage <= -(slider.sensitivity / slider.slideCount)) {
-                slider.goTo(slider.activeSlide + 1);
-              } else if (percentage >= (slider.sensitivity / slider.slideCount)) {
-                slider.goTo(slider.activeSlide - 1);
-              } else {
-                slider.goTo(slider.activeSlide);
-              }
-            }
-          }
-        });
-      };
-
-      slider.goTo = function(number) {
-        if (number < 0) {
-          slider.activeSlide = 0;
-        } else if (number > slider.slideCount - 1) {
-          slider.activeSlide = slider.slideCount - 1;
+      if (e.isFinal) {
+        console.log(e.velocityX);
+        if (e.velocityX > 1) {
+          slider.goTo(slider.activeSlide - 1);
+        } else if (e.velocityX < -1) {
+          slider.goTo(slider.activeSlide + 1);
         } else {
-          slider.activeSlide = number;
+          if (percentage <= -(slider.sensitivity / slider.slideCount)) {
+            slider.goTo(slider.activeSlide + 1);
+          } else if (percentage >= (slider.sensitivity / slider.slideCount)) {
+            slider.goTo(slider.activeSlide - 1);
+          } else {
+            slider.goTo(slider.activeSlide);
+          }
         }
+      }
+    });
+  };
 
-        slider.sliderEl.classList.add('is-animating');
-        var percentage = -(100 / slider.slideCount) * slider.activeSlide;
-        slider.sliderEl.style.transform = 'translateX(' + percentage + '%)';
-        clearTimeout(slider.timer);
-        slider.timer = setTimeout(function() {
-          slider.sliderEl.classList.remove('is-animating');
-        }, 400);
+  slider.goTo = function(number) {
+    if (number < 0) {
+      slider.activeSlide = 0;
+    } else if (number > slider.slideCount - 1) {
+      slider.activeSlide = slider.slideCount - 1;
+    } else {
+      slider.activeSlide = number;
+    }
 
-        var pagination = slider.sliderEl.parentElement.querySelectorAll(slider.sliderPaginationSelector + '>*');
-        var n = 0;
-        for (n; n < pagination.length; n++) {
-          var className = n == slider.activeSlide ? 'is-active' : '';
-          pagination[n].className = className;
-        }
-      };
+    slider.sliderEl.classList.add('is-animating');
+    var percentage = -(100 / slider.slideCount) * slider.activeSlide;
+    slider.sliderEl.style.transform = 'translateX(' + percentage + '%)';
+    clearTimeout(slider.timer);
+    slider.timer = setTimeout(function() {
+      slider.sliderEl.classList.remove('is-animating');
+    }, 400);
 
-      slider.init('#slider');
-    </script>
+    var pagination = slider.sliderEl.parentElement.querySelectorAll(slider.sliderPaginationSelector + '>*');
+    var n = 0;
+    for (n; n < pagination.length; n++) {
+      var className = n == slider.activeSlide ? 'is-active' : '';
+      pagination[n].className = className;
+    }
+  };
+
+  slider.init('#slider');
+</script>
+
 
   </body>
 </html>
