@@ -6,6 +6,9 @@
     <title>Estudiar Art i Disseny</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.7/hammer.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QN34FFRZ06"></script> 
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QN34FFRZ06'); </script>
   </head>
   <body>
     <section class="portada">
@@ -541,6 +544,24 @@
     };
 
     slider.init('#slider');
+
+    function avanzarDiapositiva() {
+        var siguienteDiapositiva = slider.activeSlide + 1;
+        if (siguienteDiapositiva >= slider.slideCount) {
+            siguienteDiapositiva = 0; 
+        }
+        slider.goTo(siguienteDiapositiva);
+    }
+
+    var intervaloSlider = setInterval(avanzarDiapositiva, 30000);
+
+    slider.sliderEl.addEventListener('touchstart', function() {
+        clearInterval(intervaloSlider);
+    });
+
+    slider.sliderEl.addEventListener('touchend', function() {
+        intervaloSlider = setInterval(avanzarDiapositiva, 30000);
+    });
   </script>
 
 
