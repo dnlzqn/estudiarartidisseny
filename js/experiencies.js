@@ -78,6 +78,7 @@ slider.panSlide = function() {
 
   
   hammer.add( new Hammer.Pan({ threshold: 0, pointers: 0 }) );
+
   
   hammer.on('pan', function(e) {
     slider.currentPane = Math.max(0, Math.min(slider.num, slider.sliderCounter - 1));
@@ -144,23 +145,6 @@ for (var i = 0; i < slider.dots.length; i++) {
 slider.panSlide();
 
 
-
-var hammer = new Hammer.Manager(slider.slidesWrapper);
-
-// Desactivar el desplazamiento horizontal durante el desplazamiento vertical
-hammer.add(new Hammer.Pan({
-    direction: Hammer.DIRECTION_VERTICAL
-}));
-
-// Agregar el gestor de eventos pan horizontal y configurarlo para que no bloquee el pan vertical
-hammer.add(new Hammer.Pan({
-    direction: Hammer.DIRECTION_HORIZONTAL,
-    threshold: 0
-}));
-
-hammer.on('pan', function(e) {
-    // Tu lógica de manejo de desplazamiento aquí
-});
 
 // Función para avanzar al siguiente slide automáticamente
 function avanzarAutomaticamente() {
