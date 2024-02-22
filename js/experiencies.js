@@ -66,14 +66,19 @@ slider.panSlide = function() {
 
     var hammer = new Hammer.Manager(slider.slidesWrapper);
 
+
+
     hammer.add(new Hammer.Pan({
         threshold: 0,
         pointers: 0
     }));
 
+
     hammer.on('pan', function(e) {
         slider.currentPane = Math.max(0, Math.min(slider.num, slider.sliderCounter - 1));
+
         var ContainerOffsetX = -slider.currentPane * slider.paneWidth + e.deltaX;
+
         slider.slidesWrapper.style.left = ContainerOffsetX + 'px';
     });
 
@@ -125,11 +130,14 @@ slider.goTo = function(number) {
     }
 };
 
+
 for (var i = 0; i < slider.dots.length; i++) {
     slider.dots[i].addEventListener('click', slider.dotsClick);
 }
 
 slider.panSlide();
+
+
 
 function avanzarAutomaticamente() {
     setInterval(function() {
@@ -138,19 +146,3 @@ function avanzarAutomaticamente() {
 }
 
 avanzarAutomaticamente();
-
-function inicializarCarrusel() {
-    slider.containerWidth = slider.container.offsetWidth;
-    slider.paneWidth = (slider.sliderCounter * slider.containerWidth) / slider.sliderCounter;
-    slider.slidesWrapper.style.width = slider.sliderCounter * slider.containerWidth + 'px';
-    slider.panSlide();
-}
-
-// Ejecutar la inicialización inicial
-inicializarCarrusel();
-
-// Agregar un listener para el evento resize en el objeto window
-window.addEventListener('resize', function() {
-    // Vuelve a ejecutar la función de inicialización del carrusel
-    inicializarCarrusel();
-});
