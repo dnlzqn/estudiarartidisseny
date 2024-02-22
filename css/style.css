@@ -78,13 +78,17 @@ section h2 {
 }
 
 .experiencies {
-  height: 60vh;
+  height: 50vh;
   background: #489fd8;
 }
 
 .portada {
   padding: 20px;
   height: 100vh;
+}
+
+.portada h1 {
+  display: none;
 }
 
 .portada svg {
@@ -287,12 +291,16 @@ button.active {
   font-size: .8rem;
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 0;
+}
+
+.slider__item p:first-child {
   margin-bottom: 1em;
 }
 
 .dots {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
 }
 
 .dots__dot {
@@ -314,7 +322,6 @@ button.active {
 .is-animating {
   transition: left 0.4s ease-in-out;
 }
-
 
 @media only screen and (min-width: 768px) {
   .imatge-sec svg {
@@ -344,4 +351,29 @@ button.active {
     width: 70%;
   }
 
+  .slider__item p {
+    font-size: .7rem;
+    width: 97%;
+  }
+
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+    .slider__item p {
+      font-size: .5rem;
+      width: 97%;
+    }
+
+    .slider__item p:first-child {
+      margin-top: 1em;
+    }
+
+    .text-sec.experiencies {
+      min-height: 70vh;
+    }
+
+    section h2 {
+      margin: 3rem 0;
+      width: 90%;
+    }
 }
