@@ -162,9 +162,18 @@ section h2 {
 }
 
 .portada {
-  position: relative;
   padding: 20px;
   height: 100vh;
+}
+
+.portada div {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #logo_dipta {
