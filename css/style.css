@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 
 :root {
   --caracters-per-linia: 55;
@@ -29,6 +30,44 @@ body {
   margin: 0 auto;
 }
 
+.art {
+  font-size: 0.35em;
+}
+
+.art img {
+  width: 3%;
+}
+
+.art1 {
+  position: fixed;
+  z-index: 1;
+  top: 10px;
+  left: 5px;
+}
+
+.art2 {
+  position: fixed;
+  z-index: 1;
+  top: 10px;
+  right: 4px;
+}
+
+.art3 {
+  position: fixed;
+  z-index: 1;
+  bottom: 10px;
+  left: 5px;
+}
+
+.art4 {
+  position: fixed;
+  z-index: 1;
+  bottom: 10px;
+  right: 4px;
+}
+
+
+
 section {
   width: 100%;
   display: flex;
@@ -37,10 +76,35 @@ section {
   text-align: center;
   line-height: 1.3;
   justify-content: center;
+  position: relative;
+}
+
+.fd1 {
+  position: sticky;
+  top: 0;
+  background-color: #f3f3f3;
+}
+
+.fd2 {
+  position: sticky;
+  top: 0;
+  background: #FFED00;
 }
 
 section p {
   text-align: center;
+}
+
+.menu  {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.menu div {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
 }
 
 .menu a {
@@ -61,16 +125,31 @@ section a:visited {
   color: black;
 }
 
-
-section h2 {
+section h1 {
   font-weight: normal;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  line-height: 1;
   width: 90%;
   margin: 1rem 0;
 }
 
-.oferta {
+
+section h2 {
+  font-weight: normal;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  width: 90%;
+  margin: 1rem 0;
+}
+
+.oferta,
+.vies {
   padding-bottom: 4rem;
+  background: #FFED00;
+}
+
+.matricula {
+  background-color: #f3f3f3;
 }
 
 .oferta h2 {
@@ -78,17 +157,37 @@ section h2 {
 }
 
 .experiencies {
-  height: 50vh;
+  height: 60vh;
   background: #489fd8;
 }
 
 .portada {
+  position: relative;
   padding: 20px;
   height: 100vh;
 }
 
-.portada h1 {
-  display: none;
+#logo_dipta {
+  position: absolute;
+  top: 10px;
+  width: 150px;
+}
+
+#fletxa {
+  position: absolute;
+  bottom: 10px;
+  margin: 0;
+  animation: adaltiabaix .8s infinite;
+}
+
+#gif_portada {
+  width: 30%;
+}
+
+@keyframes adaltiabaix {
+  0% {bottom: 10px}
+  50% {bottom: 20px}
+  100% {bottom: 10px}
 }
 
 .portada svg {
@@ -99,6 +198,10 @@ section h2 {
 .portada p {
   margin: 2rem 0;
   font-size: 1.2rem
+}
+
+.portada h2 {
+  z-index: 1;
 }
 
 .imatge-sec svg {
@@ -134,7 +237,7 @@ h3 {
   text-align: center;
   justify-content: center;
   margin: 2rem 0;
-  width: 90%;
+  padding: 2rem 0;
 }
 
 .imatge-sec p {
@@ -142,10 +245,11 @@ h3 {
 }
 
 .text-sec {
-  min-height: 50vh;
+  min-height: 100vh;
 }
 
 button {
+  font-family: "Inter", sans-serif;
   appearance: none;
   border: 1px solid black;
   border-top: none;
@@ -155,6 +259,8 @@ button {
   font-size: .8rem;
   cursor: pointer;
   color: black;
+  display: flex;
+  justify-content: space-between;
 }
 
 button.default {
@@ -178,13 +284,23 @@ button.active {
   left: -100vw;
 }
 
-.accordion .content {
+/*.accordion .content {
   width: 90%;
   overflow-y: hidden;
   height: 0;
   transition: height 0.3s ease;
-}
+}*/
 
+.accordion .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding: 0 15px;
+  background: white;
+  border: 1px solid black;
+  border-top: none;
+  border-bottom: none;
+}
 .accordion .content img {
   width: 90%;
 }
@@ -194,9 +310,15 @@ button.active {
 }
 
 
-.accordion>input[type="checkbox"]:checked~.content {
+/*.accordion>input[type="checkbox"]:checked~.content {
   height: auto;
   overflow: visible;
+}
+*/
+
+.accordion>input[type="checkbox"]:checked~.content {
+  max-height: 1000px; /* Ajusta según el contenido */
+  padding: 15px;
 }
 
 .accordion label {
@@ -224,9 +346,11 @@ button.active {
   cursor: pointer;
   font-weight: normal;
   padding: 15px;
-  background: white;
+  background: #eaeaea;
   border: 1px solid black;
   border-top: none;
+  display: flex;
+  justify-content: space-between;
 }
 
 .accordion label:hover,
@@ -291,16 +415,12 @@ button.active {
   font-size: .8rem;
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 0;
-}
-
-.slider__item p:first-child {
   margin-bottom: 1em;
 }
 
 .dots {
   text-align: center;
-  margin-bottom: .5rem;
+  margin-bottom: 1.5rem;
 }
 
 .dots__dot {
@@ -323,15 +443,17 @@ button.active {
   transition: left 0.4s ease-in-out;
 }
 
-.final {
-  font-size: 0.7em;
-}
 
-.final h2 {
-  font-size: 1rem;
-}
 
 @media only screen and (min-width: 768px) {
+  .art img {
+    width: 1.5vw;
+  }
+
+  #logo_dipta {
+    width: 200px;
+  }
+
   .imatge-sec svg {
     width: 32%;
   }
@@ -348,6 +470,7 @@ button.active {
 
   .text-sec {
     min-height: 100vh;
+    padding: 2rem 0;
   }
 
   section h2 {
@@ -358,35 +481,5 @@ button.active {
   button {
     width: 70%;
   }
-
-  .slider__item p {
-    font-size: .7rem;
-    width: 97%;
-  }
-
-}
-
-@media only screen and (max-width: 900px) and (orientation: landscape) {
-    .slider__item p {
-      font-size: .5rem;
-      width: 97%;
-    }
-
-    .slider__item p:first-child {
-      margin-top: 1em;
-    }
-
-    .text-sec.experiencies {
-      min-height: 70vh;
-    }
-
-    section h2 {
-      margin: 3rem 0;
-      width: 90%;
-    }
-
-    .final h2 {
-      margin: auto 0;
-    }
 
 }
