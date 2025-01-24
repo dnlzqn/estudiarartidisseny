@@ -80,15 +80,23 @@ section {
 }
 
 .fd1 {
-  position: sticky;
-  top: 0;
   background-color: #f3f3f3;
 }
 
-.fd2 {
+.sticky0 {
   position: sticky;
-  top: 0;
+  top: 0vw;
+}
+
+.sticky5 {
+  position: sticky;
+  top: 5vw;
+}
+
+.fd2 {
   background: #FFED00;
+  width: 90%;
+  margin: 0 auto;
 }
 
 section p {
@@ -98,11 +106,13 @@ section p {
 .menu  {
   display: flex;
   justify-content: space-evenly;
+  height: 100vh;
 }
 
 .menu div {
   display: flex;
   width: 100vw;
+  height: 100%;
   flex-direction: column;
   align-items: center;
 }
@@ -110,6 +120,10 @@ section p {
 .menu a {
   color: black;
   display: contents;
+}
+
+.menu button {
+  text-transform: uppercase;
 }
 
 section a {
@@ -142,10 +156,18 @@ section h2 {
   margin: 1rem 0;
 }
 
-.oferta,
+
 .vies {
   padding-bottom: 4rem;
   background: #FFED00;
+  width: 90%;
+    margin: 0 auto;
+}
+
+.oferta,
+.proves {
+  padding-bottom: 4rem;
+  background: #f3f3f3;
 }
 
 .matricula {
@@ -178,7 +200,7 @@ section h2 {
 
 #logo_dipta {
   position: absolute;
-  top: 10px;
+  top: -8px;
   width: 150px;
 }
 
@@ -213,18 +235,26 @@ section h2 {
   z-index: 1;
 }
 
-.imatge-sec svg {
-  width: 60%;
-  margin: 1rem;
+.footer svg {
+  width: 39%;
+  margin: .2rem;
 }
 
 .imatge-sec {
   background: #FFED00;
-  min-height: 75vh;
+  min-height: 100vh;
+  margin-bottom: 5vw;
+  border-bottom: 9vw solid #f3f3f3;
 }
 
-.imatge-sec h2 {
+.footer {
+  background: #FFED00;
+  min-height: 100vh;
+}
+
+.footer h2 {
   width: 90%;
+  font-size:1rem;
 }
 
 h3 {
@@ -239,17 +269,17 @@ h3 {
   margin: 3rem 0;
 }
 
-.imatge-sec div {
+.imatge-sec div,
+.footer div {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
   margin: 2rem 0;
-  padding: 2rem 0;
 }
 
-.imatge-sec p {
+.footer p {
   margin: .5em 0;
 }
 
@@ -263,6 +293,7 @@ button {
   border: 1px solid black;
   border-top: none;
   width: 90%;
+  height: 100%;
   background: white;
   padding: .5rem;
   font-size: .8rem;
@@ -270,6 +301,7 @@ button {
   color: black;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 button.default {
@@ -400,6 +432,10 @@ button.active {
             text-align: center;
             padding: 50px;
             color: #fff;
+            display: flex;
+            flex-direction: column;
+    align-items: center;
+    justify-content: center;
         }
 
         .nav-buttons {
@@ -424,6 +460,8 @@ button.active {
             background-color: rgba(0,0,0,0.8);
         }
 
+
+
 @media only screen and (min-width: 768px) {
   .art img {
     width: 1.5vw;
@@ -433,8 +471,8 @@ button.active {
     width: 200px;
   }
 
-  .imatge-sec svg {
-    width: 32%;
+  .footer svg {
+    width: 18%;
   }
 
   .portada p {
@@ -456,8 +494,7 @@ button.active {
     width: 70%;
   }
 
-  .accordion .content,
-  button {
+  .accordion .content {
     width: 70%;
   }
 
