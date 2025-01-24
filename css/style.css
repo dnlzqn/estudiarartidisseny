@@ -137,7 +137,7 @@ section h1 {
 section h2 {
   font-weight: normal;
   font-size: 1.25rem;
-  line-height: 1.1;
+  line-height: 1.25;
   width: 90%;
   margin: 1rem 0;
 }
@@ -329,7 +329,7 @@ button.active {
 .accordion>input[type="checkbox"]:checked~.content {
   max-height: 1000px; /* Ajusta según el contenido */
   padding: 15px;
-  width: 90%;
+/*  width: 90%;*/
 }
 
 .accordion label {
