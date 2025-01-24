@@ -106,7 +106,7 @@ section p {
 .menu  {
   display: flex;
   justify-content: space-evenly;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .menu div {
@@ -179,18 +179,18 @@ section h2 {
 }
 
 .experiencies {
-  height: 60vh;
+  height: 60dvh;
   background: #489fd8;
 }
 
 .portada {
   padding: 20px;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .portada div {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -242,14 +242,14 @@ section h2 {
 
 .imatge-sec {
   background: #FFED00;
-  min-height: 100vh;
+  min-height: 100dvh;
   margin-bottom: 5vw;
   border-bottom: 9vw solid #f3f3f3;
 }
 
 .footer {
   background: #FFED00;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .footer h2 {
@@ -284,7 +284,7 @@ h3 {
 }
 
 .text-sec {
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 button {
@@ -411,7 +411,7 @@ button.active {
 
         .slider-container {
             width: 100vw;
-            height: 100vh;
+            height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -486,7 +486,7 @@ button.active {
   }
 
   .text-sec {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 2rem 0;
   }
 
