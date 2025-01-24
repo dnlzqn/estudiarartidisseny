@@ -309,6 +309,7 @@ button.active {
   border: 1px solid black;
   border-top: none;
   border-bottom: none;
+  width: 90%;
 }
 .accordion .content img {
   width: 90%;
