@@ -108,7 +108,7 @@ section p {
 .menu  {
   display: none;
   position: fixed;
-  top: 0;
+  top: 2.5%;
   height: 100vh;
   z-index: 10;
   background: none;
@@ -118,7 +118,7 @@ section p {
   position: relative;
   display: flex;
   width: 100vw;
-  height: 100%;
+  height: 95%;
   flex-direction: column;
   align-items: center;
   z-index: 3;
@@ -134,10 +134,12 @@ section p {
 }
 
 .menu_btn {
+    display: block;
+    height: 2.7%;
     margin: 0;
     font-size: 12px;
     position: fixed;
-    bottom: -6px;
+    bottom: -1px;
     z-index: 20;
     left: 44.7vw;
     border: 1px solid black;
@@ -375,7 +377,7 @@ button.active {
 */
 
 .accordion>input[type="checkbox"]:checked~.content {
-  max-height: 1000px; /* Ajusta según el contenido */
+  max-height: 10000px; 
   padding: 15px;
 /*  width: 90%;*/
 }
@@ -424,6 +426,9 @@ button.active {
 
 /*Slider*/
 
+.experiencies {
+  display: block;
+}
 
 .slider-container {
   width: 100vw;
@@ -437,8 +442,8 @@ button.active {
 
 .slider {
   display: flex;
-  width: calc(100vw * 3); /* Multiplicar por la cantidad de slides */
-  transform: translateX(0);
+  width: calc(100vw * 11); /* Multiplicar por la cantidad de slides */
+  transform: translateX(500vw);
   transition: transform 0.5s ease-in-out;
 }
 
@@ -453,6 +458,45 @@ button.active {
   justify-content: center;
 }
 
+.slide em {
+  color: rgba(255,255,255,.8);
+}
+
+.slider_btn {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgba(255,255,255,.5);
+  /* background: red; */
+  align-items: center;
+}
+
+.slider_btn div {
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.slider_btn p {
+  position: relative;
+  bottom: 70px;
+}
+
+#prevBtn p {
+  transform: rotate(-90deg);
+}
+
+#nextBtn p {
+  transform: rotate(270deg);
+}
+
 
 @media only screen and (min-width: 768px) {
   .sticky5 {
@@ -460,13 +504,17 @@ button.active {
     top: 5vw;
   }
 
-  /*.menu {
-    top: 93.5vh
-  }*/
+  .menu {
+    top: -6px;
+  }
+
+  .menu div {
+    height: 100%;
+  }
 
   .menu_btn {
     font-size: 16px;
-    bottom: -6px;
+    bottom: -2px;
     left: 47.7vw;
     padding: .1rem .2rem .3rem;
   }
