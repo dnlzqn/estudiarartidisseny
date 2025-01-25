@@ -7,6 +7,8 @@
   --mida-font-max: 40px;
 }
 
+
+
 html {
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -44,28 +46,28 @@ body {
 
 .art1 {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   top: 10px;
   left: 5px;
 }
 
 .art2 {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   top: 10px;
   right: 4px;
 }
 
 .art3 {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   bottom: 10px;
   left: 5px;
 }
 
 .art4 {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   bottom: 10px;
   right: 4px;
 }
@@ -110,7 +112,7 @@ section p {
   position: fixed;
   top: 2.5%;
   height: 100vh;
-  z-index: 10;
+  z-index: 300;
   background: none;
 }
 
@@ -190,6 +192,56 @@ section h2 {
 .proves {
   padding-bottom: 4rem;
   background: #f3f3f3;
+}
+
+.un {
+  z-index: 2;
+}
+
+.dos {
+  z-index: 3;
+}
+
+.oferta {
+  position: sticky;
+  z-index: 4;
+}
+
+.tres {
+  z-index: 5;
+}
+
+#portesobertes {
+  z-index: 6;
+}
+
+#preinscripcio {
+  z-index: 7;
+}
+
+.matricula {
+  z-index: 8;
+}
+
+.vies {
+  z-index: 9;
+}
+
+.proves {
+  position: sticky;
+  z-index: 10;
+}
+
+.quatre {
+  z-index: 11;
+}
+
+.experiencies {
+  z-index: 12;
+}
+
+.footer {
+  z-index: 13;
 }
 
 .matricula {
@@ -438,6 +490,9 @@ button.active {
   justify-content: center;
   overflow-x: hidden;
   position: relative;
+    touch-action: pan-y;  /* Permite solo desplazamiento vertical */
+    -webkit-overflow-scrolling: touch;  /* Fluidez en iOS */
+    user-select: none;  /* Evita selecciones accidentales */
 }
 
 .slider {
