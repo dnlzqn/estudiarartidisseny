@@ -34,6 +34,10 @@ body {
   font-size: 0.35em;
 }
 
+.art a {
+  color: black;
+}
+
 .art img {
   width: 3%;
 }
@@ -65,8 +69,6 @@ body {
   bottom: 10px;
   right: 4px;
 }
-
-
 
 section {
   width: 100%;
@@ -104,17 +106,22 @@ section p {
 }
 
 .menu  {
-  display: flex;
-  justify-content: space-evenly;
+  display: none;
+  position: fixed;
+  top: 0;
   height: 100vh;
+  z-index: 10;
+  background: none;
 }
 
 .menu div {
+  position: relative;
   display: flex;
   width: 100vw;
   height: 100%;
   flex-direction: column;
   align-items: center;
+  z-index: 3;
 }
 
 .menu a {
@@ -125,6 +132,19 @@ section p {
 .menu button {
   text-transform: uppercase;
 }
+
+.menu_btn {
+    margin: 0;
+    font-size: 12px;
+    position: fixed;
+    bottom: -6px;
+    z-index: 20;
+    left: 44.7vw;
+    border: 1px solid black;
+    padding: .1rem .2rem .3rem;
+    background: white;
+}
+
 
 section a {
   color: black;
@@ -444,6 +464,17 @@ button.active {
     top: 5vw;
   }
 
+  /*.menu {
+    top: 93.5vh
+  }*/
+
+  .menu_btn {
+    font-size: 16px;
+    bottom: -6px;
+    left: 47.7vw;
+    padding: .1rem .2rem .3rem;
+  }
+
   .art img {
     width: 1.1vw;
   }
@@ -462,7 +493,7 @@ button.active {
   }
 
   .imatge-sec img {
-    max-width: 35%;
+    max-width: 30%;
     margin: 2.5rem 0;
   }
 
