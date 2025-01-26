@@ -1,7 +1,7 @@
-const sliderContainer = document.querySelector('.slider-container');  // Contenedor visible
+const sliderContainer = document.querySelector('.slider-container');  
 const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
-let currentIndex = 5;  // Iniciar desde el slide correspondiente a 500vw
+let currentIndex = 5;  
 document.getElementById('prevBtn').style.opacity = '0'; 
 
 function updateSlider() {
@@ -29,11 +29,9 @@ function prevSlide() {
     updateSlider();
 }
 
-// Event listeners para los botones de navegación
 document.getElementById('nextBtn').addEventListener('click', nextSlide);
 document.getElementById('prevBtn').addEventListener('click', prevSlide);
 
-// Integración de Hammer.js para detectar gestos táctiles
 const hammer = new Hammer(document.querySelector('.experiencies'));
 
 
