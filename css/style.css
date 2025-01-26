@@ -8,7 +8,6 @@
 }
 
 
-
 html {
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -107,7 +106,7 @@ section p {
   text-align: center;
 }
 
-.menu  {
+.menu {
   display: none;
   position: fixed;
   top: 2.5%;
@@ -136,17 +135,17 @@ section p {
 }
 
 .menu_btn {
-    display: block;
-    height: 2.7%;
-    margin: 0;
-    font-size: 12px;
-    position: fixed;
-    bottom: -1px;
-    z-index: 20;
-    left: 44.7vw;
-    border: 1px solid black;
-    padding: .1rem .2rem .3rem;
-    background: white;
+  display: block;
+  height: 2.7%;
+  margin: 0;
+  font-size: 12px;
+  position: fixed;
+  bottom: -1px;
+  z-index: 20;
+  left: 44.7vw;
+  border: 1px solid black;
+  padding: .1rem .2rem .3rem;
+  background: white;
 }
 
 
@@ -185,7 +184,7 @@ section h2 {
   padding-bottom: 4rem;
   background: #FFED00;
   width: 90%;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .oferta,
@@ -286,9 +285,17 @@ section h2 {
 }
 
 @keyframes adaltiabaix {
-  0% {bottom: 10px}
-  50% {bottom: 20px}
-  100% {bottom: 10px}
+  0% {
+    bottom: 10px
+  }
+
+  50% {
+    bottom: 20px
+  }
+
+  100% {
+    bottom: 10px
+  }
 }
 
 .portada svg {
@@ -324,7 +331,7 @@ section h2 {
 
 .footer h2 {
   width: 90%;
-  font-size:1rem;
+  font-size: 1rem;
 }
 
 h3 {
@@ -413,6 +420,7 @@ button.active {
   border-bottom: none;
   width: 90%;
 }
+
 .accordion .content img {
   width: 90%;
 }
@@ -429,9 +437,9 @@ button.active {
 */
 
 .accordion>input[type="checkbox"]:checked~.content {
-  max-height: 10000px; 
+  max-height: 10000px;
   padding: 15px;
-/*  width: 90%;*/
+  /*  width: 90%;*/
 }
 
 .accordion label {
@@ -490,14 +498,18 @@ button.active {
   justify-content: center;
   overflow-x: hidden;
   position: relative;
-    touch-action: pan-y;  /* Permite solo desplazamiento vertical */
-    -webkit-overflow-scrolling: touch;  /* Fluidez en iOS */
-    user-select: none;  /* Evita selecciones accidentales */
+  touch-action: pan-y;
+  /* Permite solo desplazamiento vertical */
+  -webkit-overflow-scrolling: touch;
+  /* Fluidez en iOS */
+  user-select: none;
+  /* Evita selecciones accidentales */
 }
 
 .slider {
   display: flex;
-  width: calc(100vw * 11); /* Multiplicar por la cantidad de slides */
+  width: calc(100vw * 11);
+  /* Multiplicar por la cantidad de slides */
   transform: translateX(500vw);
   transition: transform 0.5s ease-in-out;
 }
@@ -514,7 +526,7 @@ button.active {
 }
 
 .slide em {
-  color: rgba(255,255,255,.8);
+  color: rgba(255, 255, 255, .8);
 }
 
 .slider_btn {
@@ -525,7 +537,7 @@ button.active {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: rgba(255,255,255,.5);
+  color: rgba(255, 255, 255, .5);
   /* background: red; */
   align-items: center;
 }
