@@ -214,6 +214,7 @@ section h2 {
 }
 
 #preinscripcio {
+  position: sticky;
   z-index: 7;
 }
 
