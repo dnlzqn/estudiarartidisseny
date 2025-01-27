@@ -605,7 +605,8 @@ button.active {
   }
 
   .imatge-sec {
-    height: 94vh;
+    height: 87vh;
+    min-height: 87vh;
   }
 
   .imatge-sec img {
