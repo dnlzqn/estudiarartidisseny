@@ -604,6 +604,10 @@ button.active {
     font-size: .75rem;
   }
 
+  .imatge-sec {
+    height: 95vh;
+  }
+
   .imatge-sec img {
     max-width: 30%;
     margin: 2.5rem 0;
