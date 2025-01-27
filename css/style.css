@@ -320,9 +320,8 @@ section h2 {
 
 .imatge-sec {
   background: #FFED00;
-  min-height: 100vh;
-  margin-bottom: 5vw;
-  border-bottom: 9vw solid #f3f3f3;
+  min-height: 96vh;
+  height: 96vh;
 }
 
 .footer {
@@ -605,7 +604,7 @@ button.active {
   }
 
   .imatge-sec {
-    height: 95vh;
+    height: 94vh;
   }
 
   .imatge-sec img {
