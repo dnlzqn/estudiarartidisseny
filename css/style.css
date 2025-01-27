@@ -2,7 +2,6 @@
 
 
 :root {
-  --caracters-per-linia: 55;
   --mida-font-min: 20px;
   --mida-font-max: 40px;
 }
@@ -12,9 +11,7 @@ html {
   scroll-behavior: smooth;
   box-sizing: border-box;
   background-color: #f3f3f3;
-  font-size: clamp(var(--mida-font-min),
-      4vw,
-      var(--mida-font-max));
+  font-size: clamp(var(--mida-font-min), 4vw, var(--mida-font-max));
   line-height: 1.6;
   color: black;
   overflow-x: hidden;
@@ -286,20 +283,6 @@ section h2 {
   width: 30%;
 }
 
-@keyframes adaltiabaix {
-  0% {
-    bottom: 10px
-  }
-
-  50% {
-    bottom: 20px
-  }
-
-  100% {
-    bottom: 10px
-  }
-}
-
 .portada svg {
   width: 100%;
   height: auto;
@@ -403,13 +386,6 @@ button.active {
   left: -100vw;
 }
 
-/*.accordion .content {
-  width: 90%;
-  overflow-y: hidden;
-  height: 0;
-  transition: height 0.3s ease;
-}*/
-
 .accordion .content {
   max-height: 0;
   overflow: hidden;
@@ -431,16 +407,9 @@ button.active {
 }
 
 
-/*.accordion>input[type="checkbox"]:checked~.content {
-  height: auto;
-  overflow: visible;
-}
-*/
-
 .accordion>input[type="checkbox"]:checked~.content {
   max-height: 10000px;
   padding: 15px;
-  /*  width: 90%;*/
 }
 
 .accordion label {
@@ -499,18 +468,11 @@ button.active {
   justify-content: center;
   overflow-x: hidden;
   position: relative;
-  touch-action: pan-y;
-  /* Permite solo desplazamiento vertical */
-  -webkit-overflow-scrolling: touch;
-  /* Fluidez en iOS */
-  user-select: none;
-  /* Evita selecciones accidentales */
 }
 
 .slider {
   display: flex;
   width: calc(100vw * 11);
-  /* Multiplicar por la cantidad de slides */
   transform: translateX(500vw);
   transition: transform 0.5s ease-in-out;
 }
@@ -539,7 +501,6 @@ button.active {
   flex-direction: row;
   justify-content: space-between;
   color: rgba(255, 255, 255, .5);
-  /* background: red; */
   align-items: center;
 }
 
