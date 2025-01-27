@@ -17,6 +17,7 @@ html {
       var(--mida-font-max));
   line-height: 1.6;
   color: black;
+  overflow-x: hidden;
 }
 
 *,
