@@ -91,7 +91,7 @@ section {
 
 .sticky5 {
   position: sticky;
-  top: 2vw;
+  top: 5vw;
 }
 
 .fd2 {
@@ -107,7 +107,7 @@ section p {
 .menu {
   display: none;
   position: fixed;
-  top: 2.5%;
+  top: 0;
   height: 100vh;
   z-index: 300;
   background: none;
@@ -117,7 +117,7 @@ section p {
   position: relative;
   display: flex;
   width: 100vw;
-  height: 95%;
+  height: 85%;
   flex-direction: column;
   align-items: center;
   z-index: 3;
@@ -138,7 +138,7 @@ section p {
   margin: 0;
   font-size: 12px;
   position: fixed;
-  bottom: -1px;
+  bottom: 8px;
   z-index: 400;
   left: 44.7vw;
   border: 1px solid black;
@@ -280,7 +280,7 @@ section h2 {
 
 #logo_dipta {
   position: absolute;
-  top: -8px;
+  top: 2px;
   width: 150px;
 }
 
@@ -686,6 +686,10 @@ button.active {
 
 
 @media only screen and (min-width: 768px) {
+  .cookies {
+    top: 5vw;
+  }
+
   .accessibilitat #gif_portada {
     width: 8%;
   }
@@ -705,7 +709,7 @@ button.active {
 
   .menu_btn {
     font-size: 16px;
-    bottom: -2px;
+    bottom: 8px;
     left: 47.7vw;
     padding: .1rem .2rem .3rem;
   }
