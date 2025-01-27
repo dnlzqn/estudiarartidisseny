@@ -295,6 +295,7 @@ section h2 {
 
 .portada h2 {
   z-index: 1;
+  margin-bottom: 0;
 }
 
 .footer svg {
