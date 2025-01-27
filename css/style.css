@@ -209,6 +209,7 @@ section h2 {
 }
 
 #portesobertes {
+  position: sticky;
   z-index: 6;
 }
 
