@@ -142,7 +142,7 @@ section p {
   font-size: 12px;
   position: fixed;
   bottom: -1px;
-  z-index: 20;
+  z-index: 400;
   left: 44.7vw;
   border: 1px solid black;
   padding: .1rem .2rem 1rem;
