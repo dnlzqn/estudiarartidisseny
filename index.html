@@ -4,34 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Estudiar Art i Disseny</title>
-    <!-- Metaetiquetes Open Graph per WhatsApp i Facebook -->
+    
     <meta property="og:title" content="Estudiar Art i Disseny">
     <meta property="og:description" content="Descobreix l'oferta formativa de les Escoles d'Art i Disseny de la Diputació de Tarragona. Prepara't per al teu futur creatiu amb els nostres estudis especialitzats.">
-    <meta property="og:image" content="https://dnlzqn.github.io/estudiarartidisseny/img/preview.jpg">
-    <meta property="og:url" content="https://dnlzqn.github.io/estudiarartidisseny">
+    <meta property="og:image" content="https://dipta.cat/estudiarartidisseny/img/preview.jpg">
+    <meta property="og:url" content="https://dipta.cat/estudiarartidisseny">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Estudiar Art i Disseny">
-    <!-- Metaetiquetes per Twitter -->
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Estudiar Art i Disseny">
     <meta name="twitter:description" content="Descobreix l'oferta formativa de les Escoles d'Art i Disseny de la Diputació de Tarragona. Prepara't per al teu futur creatiu amb els nostres estudis especialitzats.">
-    <meta name="twitter:image" content="https://dnlzqn.github.io/estudiarartidisseny/img/preview.jpg">
+    <meta name="twitter:image" content="https://dipta.cat/estudiarartidisseny/img/preview.jpg">
     <meta name="twitter:site" content="@eadtarragona">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QN34FFRZ06"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+      function loadGoogleAnalytics() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QN34FFRZ06';
+        document.head.appendChild(script);
+
+        script.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-QN34FFRZ06');
+        };
       }
-      gtag('js', new Date());
-      gtag('config', 'G-QN34FFRZ06');
+
+      // Comprobar si el usuario ya aceptó las cookies
+      if (localStorage.getItem('cookiesAccepted') === 'true') {
+        loadGoogleAnalytics();
+      }
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   </head>
+
+
+
   <body>
+
+    <div class="cookies active">
+      <section class="accordion">
+          <input type="checkbox" name="collapse" id="handle25">
+          <h2 class="handle">
+            <label for="handle25">
+              Recopilem i processem la vostra informació personal amb les següents finalitats: <em>Funcionalitat, Analítica.</em> <span>Més informació</span>
+            </label>
+          </h2>
+          <div class="content">
+            <p>Aquesta web utilitza la cookie <strong>Google Analytics (G-QN34FFRZ06)</strong>, que permet recollir dades de navegació amb finalitats analítiques, com ara la freqüència de les visites, el tipus de dispositiu utilitzat, la ubicació aproximada i altres mètriques d'ús. Aquesta informació ens ajuda a millorar l'experiència d'usuari i optimitzar els nostres serveis.</p>
+            <p>Les dades recollides són totalment anònimes i no es comparteixen amb tercers. Podeu gestionar o revocar el vostre consentiment en qualsevol moment des de la configuració de cookies.</p>
+          </div>
+        </section>
+      <div class="cookies-action">
+        <button id="rejectCookies" class="cookies-btn rejectAll">Rebutjar</button>
+        <button id="acceptCookies" class="cookies-btn allowAll">Acceptar</button>
+      </div>
+    </div>
+
     <div class="art">
       <img class="art1" src="img/CFGS.svg">
       <img class="art2" src="img/APD.svg">
@@ -90,6 +125,12 @@
         <a href="#experiencies">
           <button>
             <span>Experiències</span>
+            <span>↓</span>
+          </button>
+        </a>
+        <a href="#normativa">
+          <button>
+            <span>Normativa de la web</span>
             <span>↓</span>
           </button>
         </a>
@@ -553,6 +594,165 @@
           <p>↓</p>
         </div>
     </section>
+
+    <section id="normativa" class="text-sec normativa fd1">
+      <h2>NORMATIVA DE LA WEB</h2>
+      <section class="accordion">
+        <input type="checkbox" name="collapse" id="handle23">
+        <h2 class="handle">
+          <label class="botop" for="handle23">
+            <span>Avís legal</span>
+            <span>↓</span>
+          </label>
+        </h2>
+        <div class="content">
+            <h3>Condicions d'ús dels continguts i la informació facilitada</h3>
+            <p>L’ús d’aquest web implica l’acceptació plena i sense reserves dels termes i condicions continguts en el present avís legal.</p>
+            <ol>
+            <li><a href="#Dades identificatives">Dades identificatives</a></li>
+            <li><a href="#Usuaris">Usuaris</a></li>
+            <li><a href="#Ús del portal">Ús del portal</a></li>
+            <li><a href="#Protecció de dades">Protecció de dades</a></li>
+            <li><a href="#Propietat intel·lectual i industrial">Propietat intel·lectual i industrial&nbsp;</a></li>
+            <li><a href="#Exclusió de garanties i responsabilitat">Exclusió de garanties i responsabilitat</a></li>
+            <li><a href="#Modificacions">Modificacions</a></li>
+            <li><a href="#Enllaços">Enllaços</a></li>
+            <li><a href="#Dret d’exclusió">Dret d’exclusió</a></li>
+            <li><a href="#Generalitats">Generalitats</a></li>
+            <li><a href="#Modificació de les presents condicions i duració">Modificació de les presents condicions i duració</a></li>
+            <li><a href="#Legislació aplicable i jurisdicció">Legislació aplicable i jurisdicció</a></li>
+            </ol>
+            <h3>1. <a name="Dades identificatives">Dades identificatives</a></h3>
+            <p>S’informa de les dades identificatives de l’entitat propietària dels dominis <a href="http://www.dipta.cat">www.dipta.cat</a>, <a href="http://www.diputaciodetarragona.cat">www.diputaciodetarragona.cat</a> i <a href="http://www.dipta.org">www.dipta.org</a></p>
+            <p>Denominació: Diputació de Tarragona<br><br>
+            Domici social: passeig de Sant Antoni, 100, de Tarragona<br><br>
+            NIF: P-4300000I<br><br>
+            Telèfon: 977 296 600<br><br>
+            Adreça electrònica: <a href="mailto:dipta@dipta.cat">dipta@dipta.cat</a></p>
+            <h3>2. <a name="Usuaris">Usuaris</a></h3>
+            <p>L’accés i/o ús d’aquest lloc web de la Diputació de Tarragona atribueix la condició d’USUARI, el qual accepta, des de l’esmentat accés i/o ús, les condicions generals d’ús incloses en aquest avís legal.</p>
+            <h3>3. <a name="Ús del portal">Ús del portal</a></h3>
+            <p>El lloc web <a href="http://www.dipta.cat">www.dipta.cat</a> proporciona l’accés a multitud d’informacions, serveis, programes o dades (d’ara endavant, “els continguts”) a Internet pertanyents a la Diputació de Tarragona o derivats d’un acord de llicència amb tercers i als quals l’USUARI pugui tenir accés. L’USUARI assumeix la responsabilitat de l’ús del portal. Aquesta responsabilitat es fa extensiva al registre que sigui necessari per accedir a determinats serveis o continguts. En el cas que es produeixi aquest registre, l’USUARI haurà de facilitar i mantenir de forma veraç, exacta, actualitzada i completa la informació sobre la seva identitat. A més, es compromet a fer un ús diligent de les claus d’accés (codi d’usuari i contrasenya) que se li puguin proporcionar durant el registre, a no posar-les a diposició de tercers, i a comunicar-ne a la Diputació de Tarragona la pèrdua o robatori i el possible accés que en pugui fer un tercer. L’usuari es compromet a utilitzar aquest lloc web sense incórrer en activitats que puguin ser considerades il·lícites o il·legals, que infringeixin els drets de la Diputació de Tarragona o de tercers, o que puguin atemptar contra les normes vigents. La Diputació de Tarragona no serà responsable de l’ús per part de tercers de la informació continguda al web, si bé caldrà atenir-se a les prescripcions i els advertiments que s’estableixin per a determinats documents i aplicacions.</p>
+            <p>En el cas que en el lloc web<a href="http://www.dipta.cat"> www.dipta.cat</a> s’habiliti alguna eina de participació dels usuaris, la Diputació de Tarragona es reserva el dret de retirar tots aquells comentaris i aportacions que vulnerin el respecte a la dignitat de la persona, que siguin discriminatoris, xenòfobs, racistes o pornogràfics, que atemptin contra la joventut o la infància, l’ordre o la seguretat pública o que, al seu parer, no resultin adequats per a la seva publicació. En qualsevol cas, la Diputació de Tarragona no serà responsable de les opinions expressades pels usuaris en diversos mecanismes de participació que s’habilitin en el lloc web.</p>
+            <h3>4. <a name="Protecció de dades">Protecció de dades</a></h3>
+            <p>La Diputació de Tarragona complirà estrictament la normativa vigent en cada moment sobre protecció de dades de caràcter personal i adoptarà les mesures legalment exigibles per a la protecció de les dades de caràcter personal de l’usuari, preservant-ne la privacitat i confidencialitat.</p>
+            <p>Per utilitzar algun dels continguts i/o serveis del portal o tenir-hi accés, la Diputació de Tarragona pot demanar l’emplenament de formularis que impliquin el tractament de dades de caràcter personal. En aquest cas, l’usuari dóna el seu consentiment exprés i inequívoc i, per tant, autoritza la Diputació de Tarragona a incorporar les dades que facilita per aquest mitjà als seus fitxers i al seu tractament i ús amb la finalitat de gestionar la seva sol·licitud, d’acord amb el que estableix la Llei orgànica 15/1999, de 13 de desembre, de protecció de dades de caràcter personal (LOPD). L’usuari resta informat que les seves dades de caràcter personal podran ser cedides a tercers per complir la seva sol·licitud.</p>
+            <p>Així mateix, l’usuari del web que faciliti dades de caràcter personal a la Diputació de Tarragona resta assabentat que podrà exercir davant la mateixa Diputació els drets d’accés, rectificació, cancel·lació i oposició, d’acord amb el que estableix la LOPD, mitjançant la corresponent sol·licitud, acompanyada d’una fotocòpia del seu DNI, davant el Registre de la Diputació de Tarragona, passeig de Sant Antoni, 100, 43003 Tarragona, o mitjançant la Seu Electrònica de la Diputació.</p>
+            <p>La Diputació de Tarragona adopta les mesures i els mecanismes necessaris per garantir la seguretat de les comunicacions i les transaccions que es produeixin mitjançant l’entorn web, segons l’estat de la tecnologia i d’acord amb la tipologia de les transaccions i serveis que es posen a disposició dels usuaris. Tot i això, l’usuari ha de ser conscient que les mesures de seguretat a Internet no són inexpugnables.</p>
+            <p>Les comunicacions que faci l’usuari del web que continguin dades de caràcter personal es faran mitjançant un sistema de comunicació protegit, establert amb l’objectiu de garantir, en la mesura que sigui possible, la confidencialitat de la informació i la privacitat dels usuaris. Aquest sistema criptografia la informació transmesa entre l’usuari i la Diputació. L’usuari pot verificar si es troba en un entorn segur comprovant l’existència d’un cadenat tancat que apareixerà normalment just davant de la URL a la barra de navegació del navegador (segons el navegador, el símbol i la posició en la interfície pot variar; per exemple, una clau a la part inferior de la pantalla). Per a més seguretat, es recomana a l’usuari que consulti l’ajuda del seu navegador per comprovar que està en un entorn segur.</p>
+            <h4>4.1. Política de galetes</h4>
+            <p>La Diputació de Tarragona utilitza galetes (cookies) pròpies i de tercers al seu llocs web per tal de poder millorar els serveis que hi presta. En cap cas s’utilitzen galetes per recollir informació de caràcter personal. Per a més informació, l’usuari pot consultar la pàgina de Política de galetes dels llocs web de la Diputació de Tarragona.</p>
+            <h3>5. <a name="Propietat intel·lectual i industrial">Propietat intel·lectual i industrial</a></h3>
+            <p>Aquest lloc web i tots els seus continguts, incloent-hi els textos, les imatges, els sons, les bases de dades, els codis i tot altre material en qualsevol altre format, són propietat de la Diputació de Tarragona i dels ens de gestió que hi estan vinculats, o de tercers que hagin autoritzat l’ús d’aquests continguts a la Diputació. Tot aquest material està sota l’empara de la legislació de protecció de la propietat intel·lectual. Els titulars es reserven les accions oportunes per restituir els danys i perjudicis causats per qualsevol acte que vulneri els drets de propietat intel·lectual sobre aquests continguts.</p>
+            <p>Queda totalment prohibit distribuir, copiar, modificar o trametre tant el contingut com el codi de les pàgines, llevat que es tingui l’autorització expressa i per escrit de la Diputació de Tarragona.</p>
+            <p>S’autoritza l’usuari a utilitzar , visualitzar, imprimir, descarregar i emmagatzemar els continguts i/o els elements inserits en el lloc web exclusivament per a l’ús personal, privat i no lucratiu, això és, sense finalitats comercials, sempre que es mantingui la indicació sobre el seu origen i el símbol de copyright i/o les notes de propietat industrial dels seus titulars. L’usuari ha d’abstenir-se de suprimir, alterar, eludir o manipular qualsevol dispositiu de protecció o sistema de seguretat que estigui instal·lat a les pàgines de la Diputació de Tarragona.</p>
+            <p>ALTANET, costadaurada, BASE, OASI i TINET són marques legalment registrades. Queda absolutament prohibit fer-ne qualsevol ús o reproducció sense l’autorització prèvia i per escrit de la Diputació. Resten protegits en els mateixos termes els drets de propietat industrial referits als serveis i productes de la Diputació de Tarragona i dels ens de gestió que hi estiguin vinculats que apareguin al web o sobre els quals es doni informació.</p>
+            <h3>6. <a name="Exclusió de garanties i responsabilitat">Exclusió de garanties i responsabilitat</a></h3>
+            <p>La Diputació de Tarragona no garanteix la disponibilitat i continuïtat del funcionament del web i dels seus serveis. Quan sigui raonablement possible, s’advertirà prèviament de les interrupcions en el seu funcionament.</p>
+            <p>Tot i adoptar totes les mesures tecnològiques necessàries per evitar-ho, la Diputació de Tarragona no garanteix que el web i el servidor estiguin lliures de virus i no es fa responsable dels possibles danys o perjudicis que es puguin derivar d’interferències, omissions, interrupcions, virus informàtics, avaries telefòniques o desconnexions en el funcionament operatiu d’aquest sistema electrònic, motivats per causes alienes a la Diputació, de retards o bloquejos en l’ús d’aquest sistema electrònic causats per deficiències o sobrecàrregues de línies telefòniques o sobrecàrregues en el sistema d’Internet o en altres sistemes electrònics, així com tampoc de danys que puguin ser causats per terceres persones mitjançant intromissions il·legítimes fora del control de la Diputació.</p>
+            <p>La informació administrativa facilitada a través del lloc web de la Diputació de Tarragona no substitueix la publicitat legal de les lleis, de les disposicions generals i dels actes que hagin de ser publicats formalment als diaris oficials, l’edició dels quals és l’únic instrument que dóna fe de la seva autenticitat i contingut.</p>
+            <h3>7. <a name="Modificacions">Modificacions</a></h3>
+            <p>La Diputació de Tarragona es reserva el dret de modificar unilateralment, en qualsevol moment i sense avís previ, la presentació, la configuració i els continguts del web, així com també l’oferta de serveis i les condicions que es requereixen per utilitzar-lo.</p>
+            <h3>8. <a name="Enllaços">Enllaços</a></h3>
+            <p>La Diputació de Tarragona posa a disposició dels usuaris enllaços a efectes purament informatius, però sense que la Diputació de Tarragona conegui, controli, avali o recomani els continguts, productes o serveis facilitats pels llocs web aliens als quals s’estableixen enllaços. Per això, la Diputació de Tarragona no assumeix cap responsabilitat per qualsevol aspecte relatiu a la pàgina web a la qual s’estableix un enllaç des d’aquest lloc web.</p>
+            <p>L’establiment d’un enllaç des d’un lloc web aliè cap al lloc web de la Diputació de Tarragona no suposa que entre la Diputació de Tarragona i el titular de l’altre lloc web hi hagi cap tipus de vincle o relació jurídica. La Diputació de Tarragona no serà responsable dels continguts o serveis oferts al web des del qual es fa l’enllaç.</p>
+            <h3>9. <a name="Dret d’exclusió">Dret d’exclusió</a></h3>
+            <p>La Diputació de Tarragona es reserva el dret de denegar o retirar l’accés al portal i/o als serveis oferts sense necessitat de preavís, a instància pròpia o d’un tercer, a aquells usuaris que incompleixin les presents condicions generals d’ús.</p>
+            <h3>10. <a name="Generalitats">Generalitats</a></h3>
+            <p>La Diputació de Tarragona perseguirà l’incompliment de les presents condicions així com qualsevol utilització indeguda del seu portal web i exercirà totes les accions civils i penals que li puguin correspondre en dret.</p>
+            <h3>11. <a name="Modificació de les presents condicions i duració">Modificació de les presents condicions i duració</a></h3>
+            <p>La Diputació de Tarragona podrà modificar en qualsevol moment les condicions aquí determinades, les quals seran degudament publicades en el mateix web. La vigència d’aquestes condicions aniran en funció de la seva exposició i seran vigents fins que siguin modificades per unes altres i degudament publicades.</p>
+            <h3>12. <a name="Legislació aplicable i jurisdicció">Legislació aplicable i jurisdicció</a></h3>
+            <p>Els possibles conflictes relatius a aquest web es regiran exclusivament pel dret de l’Estat espanyol i de la comunitat autònoma de Catalunya, i els jutjats de Tarragona seran els únics competents en aquesta matèria. Tota persona usuària del web, independentment de la jurisdicció territorial des de la qual es produeixi el seu accés, accepta el compliment i respecte d’aquesta clàusula, amb renúncia expressa a qualsevol altre fur que li pugui correspondre.</p>
+        </div>
+      </section>
+      <section class="accordion">
+        <input type="checkbox" name="collapse" id="handle24">
+        <h2 class="handle">
+          <label for="handle24">
+            <span>Accessibilitat</span>
+            <span>↓</span>
+          </label>
+        </h2>
+        <div class="content">
+          <h3>Declaració d'accessibilitat del web</h3>
+          <p><strong>Declaració d'accessibilitat</strong></p>
+          <p>La Diputació de Tarragona s'ha compromès a fer accessible el seu lloc web de conformitat amb el <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2018-12699">Reial decret 1112/2018, de 7 de setembre, sobre accessibilitat dels llocs web i aplicacions per a dispositius mòbils del sector públic</a>, pel qual es transposa la Directiva (UE) 2016/2102 del Parlament Europeu i del Consell, de 26 d'octubre del 2016.</p>
+          <p>Aquesta declaració d'accessibilitat s'aplica al lloc web <a href="https://www.dipta.cat">www.dipta.cat</a>, excloent-ne els continguts incrustats provinents d'altres dominis.</p>
+          <p><strong>Situació de compliment</strong></p>
+          <p>Aquest lloc web és parcialment conforme amb el Reial decret 1112/2018 a causa de la manca de conformitat dels aspectes que s'indiquen a continuació.</p>
+          <p><strong>Contingut no accessible</strong></p>
+          <p>El contingut que es recull a continuació no és accessible pel següent:</p>
+          <p><strong>a) Manca de conformitat amb Reial decret 1112/2018</strong></p>
+          <ul>
+          <li>És possible que no es proporcioni en tots els casos un mode d’operació que faciliti una sortida parlada dels subtítols disponibles [requisit número 7.1.5 de la norma UNE-EN 301549:2021-03 Subtítols parlats]</li>
+          <li>Alguna pàgina incorpora reproductor de vídeo que no disposa d’opció per seleccionar i reproduir audiodescripcions disponibles [requisit número 7.2.1 de la norma UNE-EN 301549:2021-03 Reproducció d’audiodescripció]</li>
+          <li>Algunes imatges no estan etiquetades o tenen una alternativa textual genèrica [requisit número 9.1.1.1 de la norma UNE-EN 301549:2021-23 Contingut no textual]</li>
+          <li>Alguns vídeos gravats poden no contenir subtítols [requisit número 9.1.2.2 de la norma UNE-EN 301549:2021-03 Subtítols (gravats)]</li>
+          <li>Alguns vídeos preenregistrats al lloc web no disposen d’audiodescripció o mitjans alternatius. [requisits número 9.1.2.5 i 9.1.2.3 de la norma UNE-EN 301549:2021-03 Audiodescripció o mitjans alternatius (enregistrat)]</li>
+          <li>En algunes pàgines la informació, estructura i relacions no estan determinades per programari o no tenen alternativa com a text. [requisit número 9.1.3.1 de la norma UNE-EN 301549:2021-03 D'informació i relacions]</li>
+          <li>En alguns formularis el camp d’entrada que recull informació sobre l’usuari no té identificat el propòsit [requisit número 9.1.3.5 de la norma UNE-EN 301549:2021-03 Identificació del propòsit d’entrada]</li>
+          <li>En algunes pàgines s'ha utilitzat el color com a únic mitjà visual per transmetre informació, indicar una acció, provocar una resposta o distingir un element visual [requisit número 9.1.4.1 de la norma UNE-EN 301549:2021-03 Ús del color]</li>
+          <li>En algunes pàgines la relació de contrast en text o imatges podria no ser almenys 4.5:1 [requisit número 9.1.4.3 de la norma UNE-EN 301549:2021-03 Contrast mínim]</li>
+          <li>En algunes pàgines el contrast dels components d'interfície d'usuari i objectes gràfics podria no arribar al 3:1 amb els colors adjacents [requisit número 9.1.4.11 de la norma UNE-EN 301549:2021-03 Contrast no textual]</li>
+          <li>En algunes pàgines alguns elements no tenen el focus del teclat [requisit número 9.2.1.1 de la norma UNE-EN 301549:2021-03 Teclat]</li>
+          <li>De manera puntual alguna informació en moviment automàtic no disposa de controls per aturar, controlar o amagar la informació [requisit número 9.2.2.2 de la norma UNE-EN 301549:2021-03 Posar en pausa, parar, ocultar]</li>
+          <li>De manera puntual algun enllaç podria no tenir definit el propòsit específic de manera textual [requisit número 9.2.4.4 de la norma UNE-EN 301549:2021-03 Propòsit dels enllaços]</li>
+          <li>No sempre s'ofereixen enllaços a pàgines de contingut relacionat o formes alternatives de navegació [requisit número 9.2.4.5 de la norma UNE-EN 301549:2021-03 Múltiples vies]</li>
+          <li>La ubicació del focus no és sempre visible quan es navega amb teclat [requisit número 9.2.4.7 de la norma UNE-EN 301549:2021-03 Focus visible]</li>
+          <li>De manera puntual podria existir algun error d'entrada en algun camp/formulari del qual no es notifiqués a l'usuari el suggeriment per solucionar-ho [requisit número 9.3.3.3 de la norma UNE-EN 301549:2021-03 Suggeriment davant d'errors]</li>
+          <li>En algunes pàgines hi pot haver atributs i ID duplicats [requisit número 9.4.1.1 de la norma UNE-EN 301549:2021-03 Processament]</li>
+          <li>En algunes pàgines els components d'interfície d'usuari com a elements de formulari, enllaços i components generats per script no segueixen l'estructura recomanada per les pautes d'accessibilitat [requisit número 9.4.1.2 de la norma UNE-EN 301549:2021-03 Nom, funció, valor]</li>
+          <li>En algunes pàgines els missatges d'estat podrien no estar determinats mitjançant programació a través de funcions o propietats [requisit número 9.4.1.3 de la norma UNE-EN 301549:2021-03 Missatges d'estat]</li>
+          <li>En algun document algunes imatges no estan etiquetades o tenen una alternativa textual genèrica [requisit número 10.1.1.1 de la norma UNE-EN 301549:2021-23 Contingut no textual]</li>
+          <li>En algun document la informació, estructura i relacions no estan determinades per programari o no tenen alternativa com a text [requisit número 10.1.3.1 de la norma UNE-EN 301549:2021-23 D’informació i relacions]</li>
+          <li>Algun document no té definit per programa almenys una seqüència correcta de lectura [requisit número 10.1.3.2 de la norma UNE-EN 301549:2021-23 Seqüència significativa]</li>
+          <li>Puntualment, algun document podria no tenir identificat el títol de la pàgina [requisit número 10.2.4.2 de la norma UNE-EN 301549:2021-23 Titulat de pàgines]</li>
+          <li>En alguna pàgina no s’indica el llenguatge per defecte que es fa servir [requisit número 10.3.1.1 de la norma UNE-EN 301549:2021-23 Llenguatge de la pàgina]</li>
+          <li>En algun document pot haver-hi atributs i ID duplicats [requisit número 10.4.1.1 de la norma UNE-EN 301549:2021-23 Processament]</li>
+          <li>En algun document els components d’interfície d’usuari com a elements de formulari, enllaços i components generats per script no segueixen l’estructura recomanada per les pautes d’accessibilitat [requisit número 10.4.1.2 de la norma UNE-EN 301549:2021-23 Nom, funció, valor]</li>
+          </ul>
+          <p><strong>b) Càrrega desproporcionada</strong></p>
+          <p>No aplica</p>
+          <p><strong>c) El contingut no entra dins de l'àmbit de la legislació aplicable</strong></p>
+          <ul>
+          <li>Poden existir arxius d'ofimàtica en PDF i altres formats publicats abans del 20 de setembre de 2018 que no compleixin tots els requisits d'accessibilitat. Encara que s'ha procurat que la majoria sí que ho compleixin.</li>
+          <li>Hi pot haver continguts de tercers que no estiguin desenvolupats per aquesta Diputació ni estan sota el nostre control, com ara arxius ofimàtics.</li>
+          <li>Poden existir fitxers pregravats publicats abans del 20 de setembre de 2018 que no compleixin del tot els requisits d'accessibilitat.</li>
+          </ul>
+          <p><strong>Preparació d'aquesta declaració d'accessibilitat</strong></p>
+          <p>Aquesta declaració va ser preparada el <strong>3 d'octubre de 2022</strong>.</p>
+          <p>El mètode emprat per preparar la declaració ha estat una autoavaluació duta a terme per l'empresa Everycode S.L el 16/06/2022</p>
+          <p>Última revisió de la declaració: <strong>3 d'octubre de 2022</strong>.</p>
+          <p><strong>Observacions i dades de contacte</strong></p>
+          <p>Podeu realitzar comunicacions sobre requisits d'accessibilitat (article 10.2.a) del RD 1112/2018, com ara:&nbsp;</p>
+          <ul>
+          <li>Informar sobre qualsevol possible incompliment per part d'aquest lloc web.</li>
+          <li>Transmetre altres dificultats d’accés al contingut.</li>
+          <li>Formular qualsevol altra consulta o suggeriment de millora relativa a l'accessibilitat del lloc web mitjançant el <a href="https://www.dipta.cat/contacte">formulari telemàtic de queixes, suggeriments o consultes</a>.</li>
+          </ul>
+          <p>Podeu presentar:</p>
+          <ul>
+          <li>Una queixa relativa al compliment dels requisits del RD 1112/2018&nbsp;</li>
+          <li>Una sol·licitud d'informació accessible relativa a:&nbsp;
+          <ul>
+          <li>Continguts que estan exclosos de l'àmbit d'aplicació del RD 1112/2018 segons allò que estableix l'article 3, apartat 4.</li>
+          <li>Continguts que estan exempts del compliment dels requisits d'accessibilitat per imposar una càrrega desproporcionada.</li>
+          </ul>
+          </li>
+          </ul>
+          <p>A la Sol·licitud d'informació accessible, cal concretar, amb tota claredat, els fets, les raons i la petició que permetin constatar que es tracta d'una sol·licitud raonable i legítima.</p>
+          <p>A través del <a href="https://www.dipta.cat/contacte">formulari telemàtic de queixes, suggeriments o consultes</a>, així com de la resta d'opcions recollides a la Llei 39/2015, d'1 d'octubre, del Procediment Administratiu Comú de les Administracions Públiques.</p>
+          <p>Les comunicacions, queixes i sol·licituds d’informació accessible seran rebudes i tractades per la Unitat Responsable d'Accessibilitat de la Diputació de Tarragona.&nbsp;</p>
+          <p><strong>Procediment d'aplicació</strong></p>
+          <p>Si una vegada realitzada una sol·licitud d'informació accessible o queixa, aquesta ha estat desestimada, no s'estigués d'acord amb la decisió adoptada, o la resposta no complís els requisits que preveu l'article 12.5, la persona interessada pot iniciar una reclamació. Igualment, es podrà començar una reclamació en cas que hagi transcorregut el termini de vint dies hàbils sense haver obtingut resposta.</p>
+          <p>La reclamació pot ser presentada a través de la <a href="https://actio.dipta.cat/catalegserveis/seudipta/id/8004330008_CATALEG_DIPTA_REGISTRE_FUNCIONS_SIA/servei/bdcdffc1-a817-070b-e054-0010e0bbe71d" target="_blank">Instància Genèrica de la Seu electrònica de la Diputació de Tarragona</a>, així com a la resta d'opcions recollides a la Llei 39/2015, d'1 d'octubre, del Procediment Administratiu Comú de les Administracions Públiques.</p>
+          <p>Les reclamacions seran rebudes i tractades per la Unitat Responsable de la Diputació de Tarragona.</p>
+        </div>
+      </section>
+    </section>
+
+
     <section class="footer">
       <div>
         <svg viewBox="0 0 193 45" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -598,6 +798,8 @@
         </small>
       </div>
     </section>
+
+    <script src="js/cookies.js"></script>
     <script src="js/btn_i_scroll.js"></script>
     <script src="js/experiencies.js"></script>
   </body>
