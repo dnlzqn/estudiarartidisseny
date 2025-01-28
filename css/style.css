@@ -133,8 +133,7 @@ section p {
 }
 
 .menu_btn {
-  display: block;
-  height: 2.7%;
+  display: flex;
   margin: 0;
   font-size: 12px;
   position: fixed;
@@ -142,7 +141,7 @@ section p {
   z-index: 400;
   left: 44.7vw;
   border: 1px solid black;
-  padding: .1rem .2rem 1rem;
+  padding: .1rem;
   background: white;
   line-height: 1;
 }
