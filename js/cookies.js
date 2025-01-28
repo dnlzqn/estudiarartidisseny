@@ -1,52 +1,80 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const banner = document.querySelector('.cookies');
     const acceptButton = document.getElementById('acceptCookies');
     const rejectButton = document.getElementById('rejectCookies');
+    const analyticsSwitch = document.getElementById('analyticsSwitch');
+    const analyticsLabel = document.getElementById('analyticsLabel'); // Referencia al span
+    const banner = document.querySelector('.cookies');
+    let analyticsLoaded = false; // Estado del script
 
-    function setCookie(name, value, days) {
-        let expires = "";
-        if (days) {
-            let date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + value + expires + "; path=/";
-    }
-
-    function getCookie(name) {
-        let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-        return match ? match[2] : null;
-    }
-
-    if (getCookie('cookiesAccepted') === 'true') {
-        banner.style.display = 'none';
-        loadGoogleAnalytics();
-    } else if (getCookie('cookiesAccepted') === 'false') {
-        banner.style.display = 'none';
-    }
-
-    acceptButton.addEventListener('click', function () {
-        setCookie('cookiesAccepted', 'true', 365);
-        banner.style.display = 'none';
-        loadGoogleAnalytics();
-    });
-
-    rejectButton.addEventListener('click', function () {
-        setCookie('cookiesAccepted', 'false', 365);
-        banner.style.display = 'none';
-    });
-
+    // Función para cargar el script de Google Analytics
     function loadGoogleAnalytics() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QN34FFRZ06';
-        document.body.appendChild(script);
+        if (!analyticsLoaded) {
+            const script = document.createElement('script');
+            script.id = 'googleAnalyticsScript';
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QN34FFRZ06';
+            document.body.appendChild(script);
 
-        script.onload = function () {
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-QN34FFRZ06');
-        };
+            script.onload = function () {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-QN34FFRZ06');
+                analyticsLoaded = true;
+                updateLabel(true);
+                console.log("Google Analytics cargado.");
+            };
+        }
     }
+
+    // Función para descargar el script de Google Analytics
+    function unloadGoogleAnalytics() {
+        const script = document.getElementById('googleAnalyticsScript');
+        if (script) {
+            script.remove(); // Eliminar el script del DOM
+            if (window.dataLayer) {
+                window.dataLayer = []; // Vaciar el dataLayer
+            }
+            analyticsLoaded = false;
+            updateLabel(false);
+            console.log("Google Analytics eliminado.");
+        }
+    }
+
+    // Función para actualizar el texto del label
+    function updateLabel(isAccepted) {
+        if (isAccepted) {
+            analyticsLabel.textContent = 'Cookie acceptada';
+        } else {
+            analyticsLabel.textContent = 'Cookie rebutjada';
+        }
+    }
+
+    // Función para manejar el estado del switch
+    function handleSwitchChange() {
+        if (analyticsSwitch.checked) {
+            loadGoogleAnalytics();
+        } else {
+            unloadGoogleAnalytics();
+        }
+    }
+
+    // Evento para aceptar las cookies desde el banner
+    acceptButton.addEventListener('click', function () {
+        loadGoogleAnalytics();
+        analyticsSwitch.checked = true; // Reflejar el estado en el switch
+        updateLabel(true); // Actualizar el texto
+        banner.style.display = 'none';
+    });
+
+    // Evento para rechazar las cookies desde el banner
+    rejectButton.addEventListener('click', function () {
+        unloadGoogleAnalytics();
+        analyticsSwitch.checked = false; // Reflejar el estado en el switch
+        updateLabel(false); // Actualizar el texto
+        banner.style.display = 'none';
+    });
+
+    // Evento para manejar el cambio de estado del switch
+    analyticsSwitch.addEventListener('change', handleSwitchChange);
 });

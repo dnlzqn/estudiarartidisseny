@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', (e) => {
         e.preventDefault();
-        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
     });
 
     buttons.forEach(button => {
