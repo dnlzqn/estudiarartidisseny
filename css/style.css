@@ -144,6 +144,7 @@ section p {
   border: 1px solid black;
   padding: .1rem .2rem 1rem;
   background: white;
+  line-height: 1;
 }
 
 
@@ -712,6 +713,7 @@ button.active {
   border: none;
   cursor: pointer;
   border: 1px solid black;
+  border-radius: 0;
   overflow: hidden;
   background-color: #e6e6e6;
   transition: background ease 0.3s;
