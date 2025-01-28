@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 gtag('config', 'G-QN34FFRZ06');
                 analyticsLoaded = true;
                 updateLabel(true);
-                console.log("Google Analytics cargado.");
+                console.log("Google Analytics carregat.");
             };
         }
     }
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             analyticsLoaded = false;
             updateLabel(false);
-            console.log("Google Analytics eliminado.");
+            console.log("Google Analytics eliminat.");
         }
     }
 
@@ -54,8 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSwitchChange() {
         if (analyticsSwitch.checked) {
             loadGoogleAnalytics();
+            updateLabel(true);
         } else {
             unloadGoogleAnalytics();
+            updateLabel(false);
         }
     }
 
