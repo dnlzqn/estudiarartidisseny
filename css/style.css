@@ -141,7 +141,7 @@ section p {
   z-index: 400;
   left: 44.7vw;
   border: 1px solid black;
-  padding: .1rem;
+  padding: .2rem;
   background: white;
   line-height: 1;
 }
@@ -776,7 +776,6 @@ button.active {
     font-size: 16px;
     bottom: 8px;
     left: 47.7vw;
-    padding: .1rem .2rem .3rem;
   }
 
   .art img {
