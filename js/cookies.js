@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.appendChild(script);
 
             script.onload = function () {
+                console.log("✅ Google Analytics script cargado.");
                 window.dataLayer = window.dataLayer || [];
                 function gtag() { dataLayer.push(arguments); }
                 window.gtag = gtag;
