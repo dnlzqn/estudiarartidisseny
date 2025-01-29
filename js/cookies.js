@@ -25,28 +25,47 @@ document.addEventListener('DOMContentLoaded', function () {
         document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;`;
     }
 
-    // Cargar Google Analytics solo si se aceptan las cookies
-    function loadGoogleAnalytics() {
-        if (getCookie('cookiesAccepted') === 'true') {
-            console.log("🔵 Cargando Google Analytics...");
-            window['ga-disable-G-QN34FFRZ06'] = false; // Reactivar Analytics si estaba deshabilitado
+function loadGoogleAnalytics() {
+    if (getCookie('cookiesAccepted') === 'true') {
+        console.log("🔵 Cargando Google Analytics...");
 
-            const script = document.createElement('script');
-            script.id = 'ga-script';
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QN34FFRZ06';
-            document.body.appendChild(script);
+        // Si ya existe, eliminar script previo
+        const oldScript = document.getElementById('ga-script');
+        if (oldScript) {
+            console.log("🛑 Eliminando script anterior...");
+            oldScript.remove();
+        }
 
-            script.onload = function () {
-                console.log("✅ Google Analytics script cargado.");
-                window.dataLayer = window.dataLayer || [];
-                function gtag() { dataLayer.push(arguments); }
-                window.gtag = gtag;
+        // Crear un nuevo script
+        const script = document.createElement('script');
+        script.id = 'ga-script';
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QN34FFRZ06';
+
+        // Agregarlo al DOM
+        document.body.appendChild(script);
+
+        script.onload = function () {
+            console.log("✅ Google Analytics script cargado.");
+
+            // Verificar si gtag está disponible
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            window.gtag = gtag;
+
+            // Forzar ejecución de Google Analytics
+            setTimeout(() => {
+                console.log("📊 Configurando Google Analytics...");
                 gtag('js', new Date());
                 gtag('config', 'G-QN34FFRZ06');
-            };
-        }
+            }, 1000);
+        };
+
+        script.onerror = function () {
+            console.error("❌ Error al cargar Google Analytics.");
+        };
     }
+}
 
     // Descargar Google Analytics y eliminar sus cookies
     function unloadGoogleAnalytics() {
