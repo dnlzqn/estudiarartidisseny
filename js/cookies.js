@@ -64,14 +64,14 @@ function unloadGoogleAnalytics() {
         document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.google-analytics.com;";
     });
 
-    console.log("Google Analytics ha sido eliminado y sus cookies han sido limpiadas.");
+    console.log("Les cookies de Google Analytics s'han eliminat.");
 }
 
 
 
     // Actualizar el texto del switch
     function updateLabel() {
-        analyticsLabel.textContent = analyticsSwitch.checked ? "Cookie aceptada" : "Cookie rechazada";
+        analyticsLabel.textContent = analyticsSwitch.checked ? "Galeta acceptada" : "Galeta rebutjada";
     }
 
     // Inicializar preferencias
