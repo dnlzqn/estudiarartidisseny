@@ -236,6 +236,10 @@ section h2 {
   z-index: 11;
 }
 
+.quatre img {
+  max-width: 90%;
+}
+
 .experiencies {
   position: sticky;
   z-index: 12;
