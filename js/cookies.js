@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const analyticsSwitch = document.getElementById('analyticsSwitch');
     const analyticsLabel = document.getElementById('analyticsLabel');
 
-    // Funciones para gestionar cookies
+    // Función para gestionar cookies
     function setCookie(name, value, days) {
         let expires = "";
         if (days) {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
             expires = "; expires=" + date.toUTCString();
         }
-        document.cookie = `${name}=${value}${expires}; path=/`;
+        document.cookie = `${name}=${value}${expires}; path=/; domain=.dnlzqn.github.io;`;
     }
 
     function getCookie(name) {
@@ -21,14 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
         return match ? match[2] : null;
     }
 
-    function deleteAnalyticsCookies() {
-      document.cookie = '_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;';
-      document.cookie = '_ga_QN34FFRZ06=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;';
+    function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;`;
     }
 
-    // Cargar Google Analytics
+    // Cargar Google Analytics solo si se aceptan las cookies
     function loadGoogleAnalytics() {
-        if (!document.getElementById('ga-script')) {
+        if (!document.getElementById('ga-script') && getCookie('cookiesAccepted') === 'true') {
             const script = document.createElement('script');
             script.id = 'ga-script';
             script.async = true;
@@ -38,27 +37,36 @@ document.addEventListener('DOMContentLoaded', function () {
             script.onload = function () {
                 window.dataLayer = window.dataLayer || [];
                 function gtag() { dataLayer.push(arguments); }
+                window.gtag = gtag;
                 gtag('js', new Date());
                 gtag('config', 'G-QN34FFRZ06');
             };
         }
     }
 
-    // Descargar Google Analytics
+    // Descargar Google Analytics y eliminar cookies de Analytics
     function unloadGoogleAnalytics() {
         const script = document.getElementById('ga-script');
         if (script) {
             script.remove();
         }
+
+        // Desactivar seguimiento
+        window['ga-disable-G-QN34FFRZ06'] = true;
+
+        // Intentar eliminar cookies de Google Analytics
+        const analyticsCookies = ['_gat', '_gid', '_ga', 'ar_debug'];
+        analyticsCookies.forEach(cookie => deleteCookie(cookie));
+
         window.dataLayer = [];
     }
 
     // Actualizar el texto del switch
     function updateLabel() {
-        analyticsLabel.textContent = analyticsSwitch.checked ? "Cookie acceptada" : "Cookie rebutjada";
+        analyticsLabel.textContent = analyticsSwitch.checked ? "Cookie aceptada" : "Cookie rechazada";
     }
 
-    // Inicializar estado
+    // Inicializar preferencias
     function initializePreferences() {
         const cookiesAccepted = getCookie('cookiesAccepted');
         if (cookiesAccepted === 'true') {
@@ -69,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
             banner.style.display = 'none';
             analyticsSwitch.checked = false;
             unloadGoogleAnalytics();
-            deleteAnalyticsCookies();
         } else {
             banner.style.display = 'block';
         }
@@ -89,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setCookie('cookiesAccepted', 'false', 365);
         banner.style.display = 'none';
         unloadGoogleAnalytics();
-        deleteAnalyticsCookies();
         analyticsSwitch.checked = false;
         updateLabel();
     });
@@ -102,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             setCookie('cookiesAccepted', 'false', 365);
             unloadGoogleAnalytics();
-            deleteAnalyticsCookies();
         }
         updateLabel();
     });
