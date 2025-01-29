@@ -81,8 +81,8 @@ function loadGoogleAnalytics() {
         const analyticsCookies = ["_ga", "_gid", "_gat", "_ga_QN34FFRZ06", "_gat_gtag_UA_112997138_15"];
         analyticsCookies.forEach(cookie => {
             document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;";
-            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=github.io;";
+            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dipta.cat;";
+            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dipta.cat;";
             document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.google-analytics.com;";
         });
 
