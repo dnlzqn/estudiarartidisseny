@@ -68,26 +68,35 @@ function loadGoogleAnalytics() {
 }
 
     // Descargar Google Analytics y eliminar sus cookies
-    function unloadGoogleAnalytics() {
-        console.log("🔴 Eliminando Google Analytics...");
-        const script = document.getElementById('ga-script');
-        if (script) {
-            script.remove();
-        }
+function unloadGoogleAnalytics() {
+    console.log("🔴 Eliminando Google Analytics...");
 
-        window['ga-disable-G-QN34FFRZ06'] = true; // Bloquear futuras cargas de Analytics
-
-        // Intentar borrar cookies de Analytics con varios dominios posibles
-        const analyticsCookies = ["_ga", "_gid", "_gat", "_ga_QN34FFRZ06", "_gat_gtag_UA_112997138_15"];
-        analyticsCookies.forEach(cookie => {
-            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dipta.cat;";
-            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dipta.cat;";
-            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.google-analytics.com;";
-        });
-
-        console.log("✅ Las cookies de Google Analytics han sido eliminadas.");
+    // Eliminar el script de Google Analytics si está presente
+    const script = document.getElementById('ga-script');
+    if (script) {
+        script.remove();
     }
+
+    // Bloquear futuras cargas de Google Analytics
+    window['ga-disable-G-QN34FFRZ06'] = true;
+
+    // Lista de cookies de Google Analytics a eliminar
+    const analyticsCookies = ["_ga", "_gid", "_gat", "_ga_QN34FFRZ06", "_gat_gtag_UA_112997138_15"];
+
+    // Detectar el dominio principal automáticamente
+    const hostParts = window.location.hostname.split(".");
+    const domain = hostParts.length > 2 ? `.${hostParts.slice(-2).join(".")}` : `.${window.location.hostname}`;
+
+    // Eliminar cookies con diferentes configuraciones
+    analyticsCookies.forEach(cookie => {
+        document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain};`;
+        document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.google-analytics.com;`;
+    });
+
+    console.log("✅ Las cookies de Google Analytics han sido eliminadas.");
+}
+
 
     // Actualizar el texto del switch
     function updateLabel() {
