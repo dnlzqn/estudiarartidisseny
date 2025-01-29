@@ -247,6 +247,7 @@ section h2 {
 }
 
 .footer {
+  position: sticky;
   z-index: 14;
 }
 
