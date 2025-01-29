@@ -566,8 +566,6 @@ button.active {
 }
 
 
-
-
 .cookies {
   position: fixed;
   top: 11px;
@@ -604,7 +602,7 @@ button.active {
 }
 
 .cookies .accordion label span {
-  text-decoration: underline; 
+  text-decoration: underline;
   display: inline-block;
   margin: 0 auto 1.3em;
 }
@@ -625,8 +623,8 @@ button.active {
   padding: 0;
 }
 
-.cookies .accordion .content p:first-child{
-  margin-top:0;
+.cookies .accordion .content p:first-child {
+  margin-top: 0;
 }
 
 .cookiesjsr-banner--info {
@@ -685,9 +683,6 @@ button.active {
 }
 
 
-
-
-
 .cookies-preferences {
   display: flex;
   flex-direction: row;
@@ -696,7 +691,7 @@ button.active {
 
 #analyticsLabel {
   text-transform: uppercase;
-  font-size: .7rem;
+  font-size: .5rem;
   font-weight: bold;
   margin-left: .25rem;
 }
@@ -732,7 +727,7 @@ button.active {
   text-transform: uppercase;
   text-indent: -2em;
   word-spacing: 2.55em;
-  text-shadow: -1px -1px rgba(0,0,0,0.15);
+  text-shadow: -1px -1px rgba(0, 0, 0, 0.15);
   white-space: nowrap;
   background: #000;
   color: #000;
@@ -747,15 +742,40 @@ button.active {
   transform: translateX(2.5em);
 }
 
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.5rem;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+  word-break: break-word;
+}
+
+th {
+  background-color: #f4f4f4;
+}
 
 
 @media only screen and (min-width: 768px) {
+  table {
+    font-size: 0.65rem;
+  }
+
   .cookies {
     top: 5vw;
   }
 
-  .accessibilitat #gif_portada {
+  #gif_portada {
     width: 8%;
   }
 
