@@ -44,22 +44,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Descargar Google Analytics y eliminar cookies de Analytics
-    function unloadGoogleAnalytics() {
-        const script = document.getElementById('ga-script');
-        if (script) {
-            script.remove();
-        }
-
-        // Desactivar seguimiento
-        window['ga-disable-G-QN34FFRZ06'] = true;
-
-        // Intentar eliminar cookies de Google Analytics
-        const analyticsCookies = ['_gat', '_gid', '_ga', 'ar_debug'];
-        analyticsCookies.forEach(cookie => deleteCookie(cookie));
-
-        window.dataLayer = [];
+    // Descargar Google Analytics y eliminar sus cookies
+function unloadGoogleAnalytics() {
+    // Eliminar script de Google Analytics
+    const script = document.getElementById('ga-script');
+    if (script) {
+        script.remove();
     }
+
+    // Desactivar Google Analytics
+    window['ga-disable-G-QN34FFRZ06'] = true;
+
+    // Intentar borrar cookies de Analytics
+    document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dnlzqn.github.io";
+    document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dnlzqn.github.io";
+    document.cookie = "_gat=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dnlzqn.github.io";
+    document.cookie = "_ga_QN34FFRZ06=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dnlzqn.github.io";
+}
+
 
     // Actualizar el texto del switch
     function updateLabel() {
