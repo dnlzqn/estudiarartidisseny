@@ -20,29 +20,6 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script>
-      function loadGoogleAnalytics() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QN34FFRZ06';
-    document.head.appendChild(script);
-
-    script.onload = function () {
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-QN34FFRZ06');
-    };
-  }
-
-  // Comprobar si el usuario ya aceptó las cookies
-  if (localStorage.getItem('cookiesAccepted') === 'true') {
-    loadGoogleAnalytics();
-  } else {
-    unloadGoogleAnalytics(); // Borra las cookies si no hay consentimiento
-  }
-    </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   </head>
 
