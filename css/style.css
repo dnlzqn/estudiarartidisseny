@@ -236,11 +236,6 @@ section h2 {
   z-index: 11;
 }
 
-.quatre img {
-  width: 90%;
-  max-width: 90%;
-}
-
 .experiencies {
   position: sticky;
   z-index: 12;
@@ -347,6 +342,11 @@ h3 {
 .imatge-sec img {
   width: 65%;
   margin: 3rem 0;
+}
+
+.quatre img {
+  width: 90%;
+  max-width: 90%;
 }
 
 .imatge-sec div,
