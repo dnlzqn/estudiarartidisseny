@@ -39,7 +39,7 @@
   if (localStorage.getItem('cookiesAccepted') === 'true') {
     loadGoogleAnalytics();
   } else {
-    deleteAnalyticsCookies(); // Borra las cookies si no hay consentimiento
+    unloadGoogleAnalytics(); // Borra las cookies si no hay consentimiento
   }
     </script>
 
