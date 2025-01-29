@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
         return match ? match[2] : null;
     }
 
+    function deleteAnalyticsCookies() {
+      document.cookie = '_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;';
+      document.cookie = '_ga_QN34FFRZ06=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;';
+    }
+
     // Cargar Google Analytics
     function loadGoogleAnalytics() {
         if (!document.getElementById('ga-script')) {
@@ -64,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
             banner.style.display = 'none';
             analyticsSwitch.checked = false;
             unloadGoogleAnalytics();
+            deleteAnalyticsCookies();
         } else {
             banner.style.display = 'block';
         }
@@ -83,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setCookie('cookiesAccepted', 'false', 365);
         banner.style.display = 'none';
         unloadGoogleAnalytics();
+        deleteAnalyticsCookies();
         analyticsSwitch.checked = false;
         updateLabel();
     });
@@ -95,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             setCookie('cookiesAccepted', 'false', 365);
             unloadGoogleAnalytics();
+            deleteAnalyticsCookies();
         }
         updateLabel();
     });
