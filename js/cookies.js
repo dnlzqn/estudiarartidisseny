@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Descargar Google Analytics y eliminar sus cookies
+// Descargar Google Analytics y eliminar sus cookies
 function unloadGoogleAnalytics() {
     // Eliminar script de Google Analytics
     const script = document.getElementById('ga-script');
@@ -55,12 +55,18 @@ function unloadGoogleAnalytics() {
     // Desactivar Google Analytics
     window['ga-disable-G-QN34FFRZ06'] = true;
 
-    // Intentar borrar cookies de Analytics
-    document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dnlzqn.github.io";
-    document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dnlzqn.github.io";
-    document.cookie = "_gat=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dnlzqn.github.io";
-    document.cookie = "_ga_QN34FFRZ06=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dnlzqn.github.io";
+    // Intentar borrar cookies de Analytics con varios dominios posibles
+    const analyticsCookies = ["_ga", "_gid", "_gat", "_ga_QN34FFRZ06", "_gat_gtag_UA_112997138_15"];
+    analyticsCookies.forEach(cookie => {
+        document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;";
+        document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=github.io;";
+        document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.google-analytics.com;";
+    });
+
+    console.log("Google Analytics ha sido eliminado y sus cookies han sido limpiadas.");
 }
+
 
 
     // Actualizar el texto del switch
