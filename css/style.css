@@ -232,6 +232,7 @@ section h2 {
 }
 
 .cinc {
+  position: sticky;
   z-index: 12;
 }
 
