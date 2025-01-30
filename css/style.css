@@ -178,12 +178,12 @@ section h2 {
 }
 
 
-.vies {
+/*.vies {
   padding-bottom: 4rem;
   background: #FFED00;
   width: 90%;
   margin: 0 auto;
-}
+}*/
 
 .oferta,
 .proves {
@@ -227,13 +227,17 @@ section h2 {
   z-index: 9;
 }
 
-.proves {
-  position: sticky;
-  z-index: 10;
-}
-
 .quatre {
   z-index: 11;
+}
+
+.cinc {
+  z-index: 12;
+}
+
+.proves {
+  position: sticky;
+  z-index: 13;
 }
 
 .experiencies {
