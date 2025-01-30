@@ -6,12 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', (e) => {
         e.preventDefault();
-        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+        menu.style.visibility = (menu.style.visibility === 'visible') ? 'hidden' : 'visible';
     });
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            menu.style.display = 'none';
+            menu.style.visibility = 'hidden';
         });
     });
 

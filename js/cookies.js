@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
             expires = "; expires=" + date.toUTCString();
         }
-        document.cookie = `${name}=${value}${expires}; path=/; domain=.dnlzqn.github.io;`;
+        document.cookie = `${name}=${value}${expires}; path=/; domain=.dipta.cat;`;
     }
 
     function getCookie(name) {
@@ -22,17 +22,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function deleteCookie(name) {
-        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;`;
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dipta.cat;`;
     }
 
 function loadGoogleAnalytics() {
     if (getCookie('cookiesAccepted') === 'true') {
-        console.log("🔵 Cargando Google Analytics...");
+        console.log("🔵 Carregant Google Analytics...");
 
         // Si ya existe, eliminar script previo
         const oldScript = document.getElementById('ga-script');
         if (oldScript) {
-            console.log("🛑 Eliminando script anterior...");
+            console.log("🛑 Eliminant script anterior...");
             oldScript.remove();
         }
 
@@ -46,7 +46,7 @@ function loadGoogleAnalytics() {
         document.body.appendChild(script);
 
         script.onload = function () {
-            console.log("✅ Google Analytics script cargado.");
+            console.log("✅ Google Analytics script carregat.");
 
             // Verificar si gtag está disponible
             window.dataLayer = window.dataLayer || [];
@@ -55,21 +55,20 @@ function loadGoogleAnalytics() {
 
             // Forzar ejecución de Google Analytics
             setTimeout(() => {
-                console.log("📊 Configurando Google Analytics...");
                 gtag('js', new Date());
                 gtag('config', 'G-QN34FFRZ06');
             }, 1000);
         };
 
         script.onerror = function () {
-            console.error("❌ Error al cargar Google Analytics.");
+            console.error("❌ Error al carregar Google Analytics.");
         };
     }
 }
 
     // Descargar Google Analytics y eliminar sus cookies
     function unloadGoogleAnalytics() {
-        console.log("🔴 Eliminando Google Analytics...");
+        console.log("🔴 Eliminant Google Analytics...");
         const script = document.getElementById('ga-script');
         if (script) {
             script.remove();
@@ -79,14 +78,17 @@ function loadGoogleAnalytics() {
 
         // Intentar borrar cookies de Analytics con varios dominios posibles
         const analyticsCookies = ["_ga", "_gid", "_gat", "_ga_QN34FFRZ06", "_gat_gtag_UA_112997138_15"];
+        
+
+
         analyticsCookies.forEach(cookie => {
             document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dnlzqn.github.io;";
-            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=github.io;";
+            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.dipta.cat;";
+            document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=dipta.cat;";
             document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.google-analytics.com;";
         });
 
-        console.log("✅ Las cookies de Google Analytics han sido eliminadas.");
+        console.log("✅ Las cookies de Google Analytics s'han eliminat.");
     }
 
     // Actualizar el texto del switch
@@ -98,15 +100,15 @@ function loadGoogleAnalytics() {
     function initializePreferences() {
         const cookiesAccepted = getCookie('cookiesAccepted');
         if (cookiesAccepted === 'true') {
-            banner.style.display = 'none';
+            banner.style.visibility = 'hidden';
             analyticsSwitch.checked = true;
             loadGoogleAnalytics();
         } else if (cookiesAccepted === 'false') {
-            banner.style.display = 'none';
+            banner.style.visibility = 'hidden';
             analyticsSwitch.checked = false;
             unloadGoogleAnalytics();
         } else {
-            banner.style.display = 'block';
+            banner.style.visibility = 'visible';
         }
         updateLabel();
     }
@@ -114,7 +116,7 @@ function loadGoogleAnalytics() {
     // Eventos de los botones del banner
     acceptButton.addEventListener('click', function () {
         setCookie('cookiesAccepted', 'true', 365);
-        banner.style.display = 'none';
+        banner.style.visibility = 'hidden';
         loadGoogleAnalytics();
         analyticsSwitch.checked = true;
         updateLabel();
@@ -122,7 +124,7 @@ function loadGoogleAnalytics() {
 
     rejectButton.addEventListener('click', function () {
         setCookie('cookiesAccepted', 'false', 365);
-        banner.style.display = 'none';
+        banner.style.visibility = 'hidden';
         unloadGoogleAnalytics();
         analyticsSwitch.checked = false;
         updateLabel();
@@ -131,11 +133,11 @@ function loadGoogleAnalytics() {
     // Evento del switch
     analyticsSwitch.addEventListener('change', function () {
         if (analyticsSwitch.checked) {
-            console.log("✅ Activando Analytics desde el switch...");
+            console.log("✅ Activant Analytics des del switch...");
             setCookie('cookiesAccepted', 'true', 365);
             loadGoogleAnalytics();
         } else {
-            console.log("🚫 Desactivando Analytics desde el switch...");
+            console.log("🚫 Desactivant Analytics des del switch...");
             setCookie('cookiesAccepted', 'false', 365);
             unloadGoogleAnalytics();
         }
