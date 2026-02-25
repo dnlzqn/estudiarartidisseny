@@ -6,12 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', (e) => {
         e.preventDefault();
-        menu.style.visibility = (menu.style.visibility === 'visible') ? 'hidden' : 'visible';
+        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
     });
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            menu.style.visibility = 'hidden';
+            menu.style.display = 'none';
         });
     });
 
@@ -25,18 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     accordions.forEach((accordion) => {
       accordion.addEventListener("change", function () {
         if (!this.checked) {
-          // Guardar la posición de desplazamiento antes de cerrar el acordeón
-          const scrollPosition = window.scrollY;
-
-          // Esperar a que el acordeón colapse completamente y restaurar la posición
-          setTimeout(() => {
-            window.scrollTo({
-              top: scrollPosition,
-              behavior: "instant",
-            });
-          }, 0);
+          const y = window.scrollY;
+          requestAnimationFrame(() => {
+            window.scrollTo(0, y);
+          });
         }
       });
     });
 
+    
 });

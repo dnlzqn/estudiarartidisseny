@@ -100,15 +100,15 @@ function loadGoogleAnalytics() {
     function initializePreferences() {
         const cookiesAccepted = getCookie('cookiesAccepted');
         if (cookiesAccepted === 'true') {
-            banner.style.visibility = 'hidden';
+            banner.style.display = 'none';
             analyticsSwitch.checked = true;
             loadGoogleAnalytics();
         } else if (cookiesAccepted === 'false') {
-            banner.style.visibility = 'hidden';
+            banner.style.display = 'none';
             analyticsSwitch.checked = false;
             unloadGoogleAnalytics();
         } else {
-            banner.style.visibility = 'visible';
+            banner.style.display = 'block';
         }
         updateLabel();
     }
@@ -116,7 +116,7 @@ function loadGoogleAnalytics() {
     // Eventos de los botones del banner
     acceptButton.addEventListener('click', function () {
         setCookie('cookiesAccepted', 'true', 365);
-        banner.style.visibility = 'hidden';
+        banner.style.display = 'none';
         loadGoogleAnalytics();
         analyticsSwitch.checked = true;
         updateLabel();
@@ -124,7 +124,7 @@ function loadGoogleAnalytics() {
 
     rejectButton.addEventListener('click', function () {
         setCookie('cookiesAccepted', 'false', 365);
-        banner.style.visibility = 'hidden';
+        banner.style.display = 'none';
         unloadGoogleAnalytics();
         analyticsSwitch.checked = false;
         updateLabel();
