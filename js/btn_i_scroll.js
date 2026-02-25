@@ -1,17 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu');
     const menu = document.querySelector('.menu');
+    const menu_btn = document.querySelector('.menu_btn');
     const buttons = document.querySelectorAll('.menu button');
     const accordions = document.querySelectorAll(".accordion input[type='checkbox']");
 
-    menuToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-    });
+    let abierto = false;
+
+menuToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    abierto = !abierto;
+
+    menu.style.display = abierto ? 'flex' : 'none';
+    menu_btn.textContent = abierto ? '✕' : 'MENÚ';
+});
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             menu.style.display = 'none';
+            menu_btn.textContent = 'MENÚ';
         });
     });
 
@@ -33,5 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    
+
 });
