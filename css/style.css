@@ -145,11 +145,12 @@ section p {
   position: fixed;
   bottom: 8px;
   z-index: 400;
-  left: 44.7vw;
   border: 1px solid black;
   padding: .2rem;
   background: white;
   line-height: 1;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .menu.open {
